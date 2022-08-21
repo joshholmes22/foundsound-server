@@ -19,10 +19,7 @@ const EventOrganiserSchema = {
 };
 
 const schema = new Schema(EventOrganiserSchema, {
-  toJSON: {
-    virtuals: true,
-  },
-  id: false,
+  id: true,
   timestamps: true,
 });
 
