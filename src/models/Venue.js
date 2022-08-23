@@ -2,11 +2,11 @@ const { Schema, model } = require("mongoose");
 
 const venueSchema = {
   address: {
-    type: string,
+    type: String,
     required: true,
   },
   capacity: {
-    type: string,
+    type: String,
     required: true,
   },
   facilities: {

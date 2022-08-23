@@ -7,7 +7,7 @@ const adSchema = {
     ref: "Event",
   },
   isPaid: {
-    type: string,
+    type: String,
     required: true,
     type: Boolean,
   },
