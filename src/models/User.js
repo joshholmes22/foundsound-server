@@ -51,7 +51,7 @@ const userSchema = {
   userType: {
     type: String,
     required: true,
-    enum: ["EventOrganiser", "Admin", "Artist", "AudienceMember"],
+    enum: ["eventOrganiser", "admin", "artist", "audienceMember"],
   },
 };
 
