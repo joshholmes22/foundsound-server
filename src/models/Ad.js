@@ -18,5 +18,5 @@ const adSchema = {
   },
 };
 const schema = new Schema(adSchema);
-const Ad = model("Ad", Schema);
+const Ad = model("Ad", schema);
 module.exports = Ad;

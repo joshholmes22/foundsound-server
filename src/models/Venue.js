@@ -11,10 +11,23 @@ const venueSchema = {
   },
   facilities: {
     type: String,
-    enum: ["hasFood", "isAcessibile", "hasCurfew", h"asAlcoholLicense", "hasDressingRooms", "hasSmokingArea", "hasSeating", "isDogFriendly", "hasCloakRoom", "hasShoweringFacilities", "hasToilets", "hygeineRating"],
+    enum: [
+      "hasFood",
+      "isAcessibile",
+      "hasCurfew",
+      "asAlcoholLicense",
+      "hasDressingRooms",
+      "hasSmokingArea",
+      "hasSeating",
+      "isDogFriendly",
+      "hasCloakRoom",
+      "hasShoweringFacilities",
+      "hasToilets",
+      "hygeineRating",
+    ],
   },
 };
 
 const schema = new Schema(venueSchema);
-const Venue = model("Venue", Schema);
+const Venue = model("Venue", schema);
 module.exports = Venue;

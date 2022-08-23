@@ -1,6 +1,6 @@
 const { Schema, User } = require("mongoose");
 
-const schema = {
+const audienceMemberSchema = {
   user: {
     type: String,
     required: true,
@@ -21,5 +21,9 @@ const schema = {
     unique: true,
   },
 };
+
+const schema = new Schema(audienceMemberSchema);
+
+const AudienceMember = model("AudienceMember", schema);
 
 module.exports = AudienceMember;
