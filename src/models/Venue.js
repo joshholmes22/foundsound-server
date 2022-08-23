@@ -1,8 +1,10 @@
 const { Schema, model } = require("mongoose");
 
+const Address = require("./Address");
+
 const venueSchema = {
   address: {
-    type: String,
+    type: Address,
     required: true,
   },
   capacity: {
