@@ -1,6 +1,6 @@
 const { Schema } = require("mongoose");
 
-const schema = {
+const ticketSchema = {
   hasPrice: {
     type: Boolean,
     required: true,
@@ -18,5 +18,9 @@ const schema = {
     required: false,
   },
 };
+
+const schema = new Schema(ticketSchema);
+
+const Ticket = model("Ticket", schema);
 
 module.exports = Ticket;
