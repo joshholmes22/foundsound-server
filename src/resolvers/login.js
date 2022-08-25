@@ -1,14 +1,16 @@
 const { ApolloError } = require("apollo-server");
 
 const { User } = require("../models");
-const { signToken } = require("../context/auth");
+const { signToken, verifyToken } = require("../utils/auth");
 
 const login = async (_, { loginInput }) => {
   try {
     const user = await User.findOne({ email: loginInput.email });
 
     if (!user) {
-      console.log(`[ERROR]: Failed to login | ${loginInput.email} does not exist`);
+      console.log(
+        `[ERROR]: Failed to login | ${loginInput.email} does not exist`
+      );
 
       throw new ApolloError("Failed to login");
     }
@@ -16,7 +18,9 @@ const login = async (_, { loginInput }) => {
     const isPasswordValid = await user.checkPassword(loginInput.password);
 
     if (!isPasswordValid) {
-      console.log(`[ERROR]: Failed to login | ${loginInput.email} has incorrect password`);
+      console.log(
+        `[ERROR]: Failed to login | ${loginInput.email} has incorrect password`
+      );
 
       throw new ApolloError("Failed to login");
     }

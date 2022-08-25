@@ -20,6 +20,12 @@ const typeDefs = gql`
     country: String
     fullAddress: String
   }
+  type AddressResponse {
+    postcode: String
+    latitude: String
+    longitude: String
+    addresses: [Address]
+  }
   type Venue {
     address: Address!
     capacity: [String]
@@ -55,7 +61,7 @@ const typeDefs = gql`
     address: ID!
   }
   type Query {
-    addressLookup(postcode: String!): AddressLookup
+    addressLookup(postcode: String!): AddressResponse
   }
   type Mutation {
     login(loginInput: LoginInput!): LoginSuccess
