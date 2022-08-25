@@ -31,13 +31,6 @@ const userSchema = {
     maxLength: 50,
     trim: true,
   },
-  phoneNumber: {
-    type: String,
-    required: true,
-    minLength: 8,
-    maxLength: 20,
-    trim: true,
-  },
   socialMedia: {
     type: String,
     required: true,
@@ -51,7 +44,7 @@ const userSchema = {
   userType: {
     type: String,
     required: true,
-    enum: ["EventOrganiser", "Admin", "Artist", "AudienceMember"],
+    enum: ["eventOrganiser", "admin", "artist", "audienceMember"],
   },
 };
 
