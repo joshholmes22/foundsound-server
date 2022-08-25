@@ -23,6 +23,7 @@ const typeDefs = gql`
   type Venue {
     address: Address!
     capacity: [String]
+    facilities: String!
   }
   type User {
     id: ID!
