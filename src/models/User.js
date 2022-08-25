@@ -57,20 +57,20 @@ const userSchema = {
   },
 };
 
-const schema = new Schema(userSchema);
-schema.method("checkPassword", async function (password) {
-  const isValid = await bcrypt.compare(password, this.password);
-  return isValid;
-});
+// const schema = new Schema(userSchema);
+// schema.method("checkPassword", async function (password) {
+//   const isValid = await bcrypt.compare(password, this.password);
+//   return isValid;
+// });
 
-schema.pre("save", async function (next) {
-  if (this.isNew || this.isModified("password")) {
-    const password = await bcrypt.hash(this.password, 10);
-    this.password = password;
-  }
+// schema.pre("save", async function (next) {
+//   if (this.isNew || this.isModified("password")) {
+//     const password = await bcrypt.hash(this.password, 10);
+//     this.password = password;
+//   }
 
-  next();
-});
+//   next();
+// });
 
 userSchema.pre("save", hashPassword);
 
