@@ -25,8 +25,10 @@ const venueSchema = {
       "hasCloakRoom",
       "hasShoweringFacilities",
       "hasToilets",
+      "none",
       "hygeineRating",
     ],
+    default: "none",
   },
 };
 
