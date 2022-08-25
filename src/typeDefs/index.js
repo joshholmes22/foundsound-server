@@ -20,21 +20,17 @@ const typeDefs = gql`
     country: String
     fullAddress: String
   }
-  type AddressLookup {
-    postcode: String
-    latitude: String
-    longitude: String
-    addresses: [Address]
+  type Venue {
+    address: Address!
+    capacity: [String]
   }
   type User {
     id: ID!
     firstName: String!
     lastName: String!
     email: String!
-    phoneNumber: String!
     imageUrl: String!
     userType: String!
-    address: Address!
   }
   type SignupSuccess {
     success: Boolean!
@@ -53,7 +49,6 @@ const typeDefs = gql`
     lastName: String!
     email: String!
     password: String!
-    phoneNumber: String!
     imageUrl: String!
     userType: String!
     address: ID!
