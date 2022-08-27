@@ -35,12 +35,12 @@ const userSchema = {
   },
   socialMedia: {
     type: String,
-    required: true,
     trim: true,
   },
   imageUrl: {
     type: String,
-    required: true,
+    default:
+      "https://images.unsplash.com/photo-1543373014-cfe4f4bc1cdf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2848&q=80",
     trim: true,
   },
   userType: {
@@ -51,23 +51,23 @@ const userSchema = {
 };
 
 const schema = new Schema(userSchema);
-// schema.method("checkPassword", async function (password) {
-//   const isValid = await bcrypt.compare(password, this.password);
-//   return isValid;
-// });
+schema.method("hashPassword", async function (password) {
+  const isValid = await bcrypt.compare(password, this.password);
+  return isValid;
+});
 
-// schema.pre("save", async function (next) {
-//   if (this.isNew || this.isModified("password")) {
-// const password = await bcrypt.hash(this.password, 10);
-//     this.password = password;
-//   }
+schema.pre("save", async function (next) {
+  if (this.isNew || this.isModified("password")) {
+    const password = await bcrypt.hash(this.password, 10);
+    this.password = password;
+  }
 
-//   next();
-// });
+  next();
+});
 
-schema.pre("save", hashPassword);
+// schema.pre("save", hashPassword);
 
-schema.methods.validatePassword = validatePassword;
+// schema.methods.validatePassword = validatePassword;
 
 const User = model("User", schema);
 
