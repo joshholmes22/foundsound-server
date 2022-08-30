@@ -14,6 +14,7 @@ const EventOrganiserSchema = {
   verificationCode: {
     type: String,
     required: true,
+    enum: ["pending", "rejected", "completed"],
     trim: true,
   },
 };
