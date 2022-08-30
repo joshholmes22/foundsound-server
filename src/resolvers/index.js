@@ -2,7 +2,9 @@ const login = require("./login");
 const signup = require("./signup");
 
 const resolvers = {
-  Query: {},
+  Query: {
+    addressLookup,
+  },
   Mutation: {
     login,
     signup,
