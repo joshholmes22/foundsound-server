@@ -5,6 +5,7 @@ const { signToken, verifyToken } = require("../utils/auth");
 
 const login = async (_, { loginInput }) => {
   try {
+    console.log(loginInput);
     const user = await User.findOne({ email: loginInput.email });
 
     if (!user) {
@@ -15,7 +16,8 @@ const login = async (_, { loginInput }) => {
       throw new ApolloError("Failed to login");
     }
 
-    const isPasswordValid = await user.checkPassword(loginInput.password);
+    const isPasswordValid = await user.hashPassword(loginInput.password);
+    console.log(isPasswordValid);
 
     if (!isPasswordValid) {
       console.log(
@@ -24,19 +26,20 @@ const login = async (_, { loginInput }) => {
 
       throw new ApolloError("Failed to login");
     }
+    const loggedInUser = {
+      id: user.get("_id"),
+      firstName: user.get("firstName"),
+      lastName: user.get("lastName"),
+      email: user.get("email"),
+      socialMedia: user.get("socialMedia"),
+      imageUrl: user.get("imageUrl"),
+      userType: user.get("userType"),
+    };
 
     return {
       success: true,
-      token: signToken(user),
-      user: {
-        id: user.get("_id"),
-        firstName: user.get("firstName"),
-        lastName: user.get("lastName"),
-        email: user.get("email"),
-        socialMedia: user.get("socialMedia"),
-        imageUrl: user.get("imageUrl"),
-        userType: user.get("userType"),
-      },
+      token: signToken(loggedInUser),
+      user: loggedInUser,
     };
   } catch (error) {
     console.log(`[ERROR]: Failed to login | ${error.message}`);

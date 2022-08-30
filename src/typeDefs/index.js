@@ -36,12 +36,14 @@ const typeDefs = gql`
     firstName: String!
     lastName: String!
     email: String!
-    imageUrl: String!
+    imageUrl: String
+    socialMedia: String
     userType: String!
   }
   type SignupSuccess {
     success: Boolean!
   }
+
   type LoginSuccess {
     success: Boolean!
     token: String!
@@ -56,9 +58,10 @@ const typeDefs = gql`
     lastName: String!
     email: String!
     password: String!
-    imageUrl: String!
+    imageUrl: String
+    socialMedia: String
     userType: String!
-    address: ID!
+    address: ID
   }
   type Query {
     addressLookup(postcode: String!): AddressResponse
