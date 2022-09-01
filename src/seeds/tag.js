@@ -1,6 +1,6 @@
-const tag = require("../models/Tag");
+const { Tag } = require("../models");
 
-const tag = [
+const tags = [
   {
     name: "Wembley",
   },
@@ -36,4 +36,10 @@ const tag = [
   },
 ];
 
-module.exports = tag;
+const seedTags = async () => {
+  await Tag.insertMany(tags);
+
+  console.log("[INFO]: Successfully seeded tags");
+};
+
+module.exports = { seedTags };
