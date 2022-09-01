@@ -9,7 +9,7 @@ const venues = [
       postcode: "B140EL",
     },
     capacity: "1",
-    facilities: ["hasFood", "isAcessibile", "hasCurfew"],
+    facilities: "isAcessibile",
   },
   {
     address: {
@@ -19,7 +19,7 @@ const venues = [
       postcode: "B140EL",
     },
     capacity: "1",
-    facilities: ["hasFood", "isAcessibile", "hasCurfew"],
+    facilities: "hasFood",
   },
   {
     address: {
@@ -29,7 +29,7 @@ const venues = [
       postcode: "M140EL",
     },
     capacity: "1",
-    facilities: ["hasFood", "isDogFriendly", "hasCurfew"],
+    facilities: "hasCurfew",
   },
   {
     address: {
@@ -39,7 +39,7 @@ const venues = [
       postcode: "L140EL",
     },
     capacity: "1",
-    facilities: ["hasFood", "isAcessibile", "hasToilets"],
+    facilities: "isAcessibile",
   },
 ];
 
