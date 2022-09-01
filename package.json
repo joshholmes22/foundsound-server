@@ -23,11 +23,13 @@
   },
   "dependencies": {
     "apollo-server": "^3.10.1",
+    "axios": "^0.27.2",
     "bcrypt": "^5.0.1",
     "date-fns": "^2.29.2",
     "dotenv": "^16.0.1",
     "graphql": "^16.6.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.5.2"
+    "mongoose": "^6.5.2",
+    "react-address-lookup": "^2.0.1"
   }
 }
