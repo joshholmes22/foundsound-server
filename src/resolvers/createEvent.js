@@ -13,9 +13,7 @@ const mockEvent = {
 
 const createEvent = async (_, { input }) => {
   try {
-    const event = input.eventId;
-    const venue = input.venueId;
-    const tag = input.tagId;
+    const { event, venue, tag } = input;
 
     const newVenue = await Venue.find({});
     const newTag = await Tag.find({});
