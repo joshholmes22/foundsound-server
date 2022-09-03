@@ -4,6 +4,7 @@ const addressLookup = async (_, { postcode }) => {
   const addressesFromDB = await AddressLookup.findOne({
     postcode: postcode.toUpperCase().replace(" ", ""),
   });
+  console.log(addressesFromDB);
 
   if (!addressesFromDB) {
     console.log(
@@ -24,7 +25,7 @@ const addressLookup = async (_, { postcode }) => {
     });
 
     const addresses = await AddressLookup.create(data);
-
+    // console.log(JSON.stringify(addresses));
     return addresses;
   }
 
@@ -33,7 +34,7 @@ const addressLookup = async (_, { postcode }) => {
       .toUpperCase()
       .replace(" ", "")}`
   );
-
+  console.log(JSON.stringify(addressesFromDB));
   return addressesFromDB;
 };
 

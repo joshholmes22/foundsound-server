@@ -1,7 +1,5 @@
 const { Schema, model } = require("mongoose");
 
-const Address = require("./Address");
-
 const addressLookupSchema = {
   postcode: {
     type: String,
@@ -18,7 +16,8 @@ const addressLookupSchema = {
   },
   addresses: [
     {
-      type: Address,
+      type: Schema.Types.ObjectId,
+      ref: "Address",
     },
   ],
 };

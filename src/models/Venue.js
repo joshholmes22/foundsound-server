@@ -4,8 +4,8 @@ const Address = require("./Address");
 
 const venueSchema = {
   address: {
-    type: Address,
-    required: true,
+    type: Schema.Types.ObjectId,
+    ref: "Address",
   },
   capacity: {
     type: String,

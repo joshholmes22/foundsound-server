@@ -3,9 +3,9 @@ const { Venue, AddressLookup, User, EventOrganiser } = require("../models");
 
 const createVenue = async (_, { input }) => {
   try {
-    const { address, capacity, facilities, user, id } = input;
+    const { address, capacity, facilities, user, _id: id } = input;
 
-    if (!address && !capacity && !facilities) {
+    if (!address || !capacity || !facilities) {
       throw new ApolloError("All required fields are not provided!");
     }
 
@@ -18,7 +18,7 @@ const createVenue = async (_, { input }) => {
           venue: [...venue],
         },
       });
-      return { venue, updateEventOrganiser };
+      return { venue };
     } else {
       throw new AuthenticationError("Unauthorized access");
     }
