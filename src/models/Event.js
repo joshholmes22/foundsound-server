@@ -48,13 +48,3 @@ const schema = new Schema(eventSchema);
 const Event = model("Event", schema);
 
 module.exports = Event;
-
-// "Event
-// - name
-// - description
-// - start date and time
-// - end date and time
-// - venue(Venue)
-// - imageUrl
-// - tags (enum)
-// - price"

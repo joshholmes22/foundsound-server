@@ -31,6 +31,16 @@ const typeDefs = gql`
     capacity: [String]
     facilities: String!
   }
+  type Event {
+    name: String
+    description: String
+    startDateTime: Date
+    endDateTime: Date
+    venue: [Venue]
+    imageUrl: String
+    tags: [Tags]
+    price: Number
+  }
   type User {
     id: ID!
     firstName: String!
