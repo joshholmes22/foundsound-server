@@ -63,12 +63,24 @@ const typeDefs = gql`
     userType: String!
     address: ID
   }
+
+  input VenueInput {
+    address: Address!
+    capacity: [String]
+    facilities: String!
+  }
+
+  type VenueSuccess {
+    success: Boolean!
+  }
+
   type Query {
     addressLookup(postcode: String!): AddressResponse
   }
   type Mutation {
     login(loginInput: LoginInput!): LoginSuccess
     signup(signupInput: SignupInput!): SignupSuccess
+    createVenue(venueInput: VenueInput!): VenueSuccess
   }
 `;
 
