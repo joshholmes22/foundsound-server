@@ -14,6 +14,7 @@ const createVenue = async (_, { input }) => {
 
       const updateEventOrganiser = await EventOrganiser.findByIdAndUpdate(id, {
         $push: {
+          // ?? remember to check if it is correct?
           venue: [...venue],
         },
       });
