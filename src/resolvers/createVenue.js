@@ -1,21 +1,26 @@
-const { ApolloError } = require("apollo-server");
-const { Venue, AddressLookup } = require("../models");
+const { ApolloError, AuthenticationError } = require("apollo-server");
+const { Venue, AddressLookup, User, EventOrganiser } = require("../models");
 
 const createVenue = async (_, { input }) => {
   try {
-    const { address, capacity, facilities } = input;
-
-    // find by id/ formatted address ??!?!
-
-    const formatAddress = AddressLookup.find();
+    const { address, capacity, facilities, user, id } = input;
 
     if (!address && !capacity && !facilities) {
       throw new ApolloError("All required fields are not provided!");
     }
 
-    const venue = await Venue.create({ address, capacity, facilities });
+    if (user === "eventOrganiser") {
+      const venue = await Venue.create({ address, capacity, facilities });
 
-    return venue;
+      const updateEventOrganiser = await EventOrganiser.findByIdAndUpdate(id, {
+        $push: {
+          venue: [...venue],
+        },
+      });
+      return { venue, updateEventOrganiser };
+    } else {
+      throw new AuthenticationError("Unauthorized access");
+    }
   } catch (error) {
     console.log(`[ERROR]: Failed to create venue | ${error.message}`);
 
