@@ -60,6 +60,28 @@ const typeDefs = gql`
     socialMedia: String
     userType: String!
   }
+
+  type EventOrganiser {
+    user: ID
+    venue: ID
+    verificationCode: String
+  }
+
+  type Artist {
+    name: String
+    user: ID
+    demoSong: String
+    tag: ID
+    rider: String
+  }
+
+  type AudienceMember {
+    user: ID
+    booking: [String]
+    favouriteArtists: String
+    favouriteEvents: String
+  }
+
   type SignupSuccess {
     success: Boolean!
   }
@@ -81,7 +103,6 @@ const typeDefs = gql`
     imageUrl: String
     socialMedia: String
     userType: String!
-    address: ID
   }
 
   input VenueInput {
