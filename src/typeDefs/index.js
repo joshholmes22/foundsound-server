@@ -86,7 +86,7 @@ const typeDefs = gql`
 
   input VenueInput {
     address: AddressInput!
-    capacity: [String]
+    capacity: String!
     facilities: String!
     user: String!
     _id: ID!

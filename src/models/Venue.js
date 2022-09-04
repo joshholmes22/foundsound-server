@@ -1,7 +1,5 @@
 const { Schema, model } = require("mongoose");
 
-const Address = require("./Address");
-
 const venueSchema = {
   address: {
     type: Schema.Types.ObjectId,
