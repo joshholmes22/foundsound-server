@@ -57,6 +57,7 @@ const typeDefs = gql`
     lastName: String!
     email: String!
     imageUrl: String
+    imageFileName: String!
     socialMedia: String
     userType: String!
   }
