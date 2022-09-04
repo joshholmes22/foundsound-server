@@ -102,6 +102,7 @@ const typeDefs = gql`
     email: String!
     password: String!
     imageUrl: String
+    imageFileName: String
     socialMedia: String
     userType: String!
   }
@@ -110,7 +111,7 @@ const typeDefs = gql`
     address: AddressInput!
     capacity: String!
     facilities: String!
-    user: String!
+    userType: String!
     _id: ID!
   }
 
