@@ -135,6 +135,7 @@ const typeDefs = gql`
     signup(signupInput: SignupInput!): SignupSuccess
     createVenue(venueInput: VenueInput!): VenueSuccess
     deleteEvent(input: DeleteEventInput!): DeleteEventSuccess
+    createEvent(eventInput: EventInput!): EventResponse
   }
 `;
 
