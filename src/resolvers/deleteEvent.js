@@ -1,5 +1,11 @@
 const { ApolloError, AuthenticationError } = require("apollo-server");
-const { Venue, AddressLookup, User, EventOrganiser } = require("../models");
+const {
+  Venue,
+  AddressLookup,
+  User,
+  EventOrganiser,
+  Event,
+} = require("../models");
 
 const deleteEvent = async (_, { input }, { user }) => {
   try {
