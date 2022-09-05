@@ -43,6 +43,11 @@ const userSchema = {
       "https://images.unsplash.com/photo-1543373014-cfe4f4bc1cdf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2848&q=80",
     trim: true,
   },
+  imageFileName: {
+    type: String,
+    required: true,
+    trim: true,
+  },
   userType: {
     type: String,
     required: true,

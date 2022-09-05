@@ -1,6 +1,25 @@
 const { gql } = require("apollo-server");
 
 const typeDefs = gql`
+  input AddressInput {
+    _id: ID!
+    formatted_address: [String]
+    thoroughfare: String
+    building_name: String
+    sub_building_name: String
+    sub_building_number: String
+    building_number: String
+    line_1: String
+    line_2: String
+    line_3: String
+    line_4: String
+    locality: String
+    town_or_city: String
+    county: String
+    district: String
+    country: String
+    fullAddress: String
+  }
   type Address {
     _id: ID!
     formatted_address: [String]
@@ -20,6 +39,7 @@ const typeDefs = gql`
     country: String
     fullAddress: String
   }
+
   type AddressResponse {
     postcode: String
     latitude: String
@@ -49,9 +69,32 @@ const typeDefs = gql`
     lastName: String!
     email: String!
     imageUrl: String
+    imageFileName: String!
     socialMedia: String
     userType: String!
   }
+
+  type EventOrganiser {
+    user: ID
+    venue: ID
+    verificationCode: String
+  }
+
+  type Artist {
+    name: String
+    user: ID
+    demoSong: String
+    tag: ID
+    rider: String
+  }
+
+  type AudienceMember {
+    user: ID
+    booking: [String]
+    favouriteArtists: String
+    favouriteEvents: String
+  }
+
   type SignupSuccess {
     success: Boolean!
   }
@@ -73,19 +116,10 @@ const typeDefs = gql`
     email: String!
     password: String!
     imageUrl: String
+    imageFileName: String
     socialMedia: String
     userType: String!
     address: ID
-  }
-
-  input EventInput {
-    name: String!
-    description: String!
-    startDateTime: String!
-    endDateTime: String!
-    venue: ID!
-    imageUrl: String!
-    tags: [ID]
   }
   type Query {
     addressLookup(postcode: String!): AddressResponse
@@ -93,7 +127,6 @@ const typeDefs = gql`
   type Mutation {
     login(loginInput: LoginInput!): LoginSuccess
     signup(signupInput: SignupInput!): SignupSuccess
-    createEvent(eventInput: EventInput!): EventResponse
   }
 `;
 

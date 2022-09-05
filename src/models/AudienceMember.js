@@ -2,22 +2,19 @@ const { Schema, model } = require("mongoose");
 
 const audienceMemberSchema = {
   user: {
-    type: String,
-    required: true,
+    type: Schema.Types.ObjectId,
+    ref: "User",
   },
   booking: [
     {
       type: String,
-      required: true,
     },
   ],
   favouriteArtists: {
     type: String,
-    required: true,
   },
   favouriteEvents: {
     type: String,
-    required: true,
     unique: true,
   },
 };

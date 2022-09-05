@@ -4,7 +4,6 @@ const artistSchema = {
   name: {
     type: String,
     unique: true,
-    required: true,
     trim: true,
   },
   user: {
