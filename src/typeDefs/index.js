@@ -114,6 +114,14 @@ const typeDefs = gql`
     userType: String!
     _id: ID!
   }
+  input EventInput {
+    name: String!
+    description: String!
+    startDateTime: String!
+    endDateTime: String!
+    venue: ID!
+    imageUrl: String!
+    tags: [ID]
 
   type VenueSuccess {
     success: Boolean!
