@@ -33,10 +33,12 @@ const eventSchema = {
     type: String,
     trim: true,
   },
-  tags: {
-    type: Schema.Types.ObjectId,
-    ref: "Tags",
-  },
+  tags: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Tags",
+    },
+  ],
 };
 
 const schema = new Schema(eventSchema);

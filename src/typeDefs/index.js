@@ -83,8 +83,9 @@ const typeDefs = gql`
     description: String!
     startDateTime: String!
     endDateTime: String!
+    venue: ID!
     imageUrl: String!
-    venues: [Venue]
+    tags: [ID]
   }
   type Query {
     addressLookup(postcode: String!): AddressResponse
