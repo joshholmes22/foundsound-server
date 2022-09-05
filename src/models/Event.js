@@ -36,7 +36,7 @@ const eventSchema = {
   tags: [
     {
       type: Schema.Types.ObjectId,
-      ref: "Tags",
+      ref: "Tag",
     },
   ],
 };
