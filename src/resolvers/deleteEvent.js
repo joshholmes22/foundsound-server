@@ -3,7 +3,7 @@ const { Venue, AddressLookup, User, EventOrganiser } = require("../models");
 
 const deleteEvent = async (_, { input }, { user }) => {
   try {
-    if (!user) {
+    if (!user && !input) {
       throw new AuthenticationError(
         "You must be logged in to delete an event ."
       );
