@@ -1,4 +1,5 @@
 const Ad = require("./Ad");
+const Address = require("./Address");
 const AddressLookup = require("./AddressLookup");
 const Artist = require("./Artist");
 const AudienceMember = require("./AudienceMember");
@@ -18,6 +19,7 @@ module.exports = {
   Tag,
   Ticket,
   User,
+  Address,
   Venue,
   AddressLookup,
 };
