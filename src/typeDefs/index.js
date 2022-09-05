@@ -115,11 +115,6 @@ const typeDefs = gql`
     _id: ID!
   }
 
-  input DeleteEventInput{
-    
-
-  }
-
   type VenueSuccess {
     success: Boolean!
   }
@@ -131,7 +126,7 @@ const typeDefs = gql`
     login(loginInput: LoginInput!): LoginSuccess
     signup(signupInput: SignupInput!): SignupSuccess
     createVenue(venueInput: VenueInput!): VenueSuccess
-    deleteEvent( input: DeleteEventInput!): DeleteEventSuccess
+    deleteEvent(input: DeleteEventInput!): DeleteEventSuccess
   }
 `;
 
