@@ -31,15 +31,18 @@ const typeDefs = gql`
     capacity: [String]
     facilities: String!
   }
-  type Event {
+  type Tag {
+    name: String!
+  }
+  type EventResponse {
     name: String
     description: String
-    startDateTime: Date
-    endDateTime: Date
-    venue: [Venue]
+    startDateTime: String
+    endDateTime: String
+    venues: [Venue]
     imageUrl: String
-    tags: [Tags]
-    price: Number
+    tags: [Tag]
+    price: Int
   }
   type User {
     id: ID!
@@ -59,10 +62,12 @@ const typeDefs = gql`
     token: String!
     user: User!
   }
+
   input LoginInput {
     email: String!
     password: String!
   }
+
   input SignupInput {
     firstName: String!
     lastName: String!
@@ -73,12 +78,23 @@ const typeDefs = gql`
     userType: String!
     address: ID
   }
+
+  input EventInput {
+    name: String!
+    description: String!
+    startDateTime: String!
+    endDateTime: String!
+    imageUrl: String!
+    venues: [Venue]
+    price: Int
+  }
   type Query {
     addressLookup(postcode: String!): AddressResponse
   }
   type Mutation {
     login(loginInput: LoginInput!): LoginSuccess
     signup(signupInput: SignupInput!): SignupSuccess
+    createEvent(input: EventInput!): EventResponse
   }
 `;
 
