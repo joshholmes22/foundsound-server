@@ -42,7 +42,6 @@ const typeDefs = gql`
     venues: [Venue]
     imageUrl: String
     tags: [Tag]
-    price: Int
   }
   type User {
     id: ID!
@@ -86,7 +85,6 @@ const typeDefs = gql`
     endDateTime: String!
     imageUrl: String!
     venues: [Venue]
-    price: Int
   }
   type Query {
     addressLookup(postcode: String!): AddressResponse
@@ -94,7 +92,7 @@ const typeDefs = gql`
   type Mutation {
     login(loginInput: LoginInput!): LoginSuccess
     signup(signupInput: SignupInput!): SignupSuccess
-    createEvent(input: EventInput!): EventResponse
+    createEvent(eventInput: EventInput!): EventResponse
   }
 `;
 

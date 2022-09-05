@@ -1,32 +1,14 @@
 const { Venue, Tag, Event } = require("../models");
 
-const createEvent = async (_, { input }) => {
+const createEvent = async (_, { eventInput }) => {
   try {
-    const {
-      name,
-      description,
-      startDateTime,
-      endDateTime,
-      venue,
-      imageUrl,
-      tags,
-      price,
-    } = input;
-
     if (!input) {
       throw new ApolloError("All required fields are not provided!");
     }
 
     if (input) {
       const event = await Event.create({
-        name,
-        description,
-        startDateTime,
-        endDateTime,
-        venue,
-        imageUrl,
-        tags,
-        price,
+        ...eventInput,
       });
 
       return { event };
