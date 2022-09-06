@@ -8,7 +8,6 @@ const eventSchema = {
     maxLength: 150,
     trim: true,
   },
-
   description: {
     type: String,
     required: true,
@@ -28,6 +27,7 @@ const eventSchema = {
   venue: {
     type: Schema.Types.ObjectId,
     ref: "Venue",
+    required: true,
   },
   imageUrl: {
     type: String,
@@ -36,10 +36,9 @@ const eventSchema = {
   tags: [
     {
       type: Schema.Types.ObjectId,
-      ref: "Tags",
+      ref: "Tag",
     },
   ],
-
   price: {
     type: Number,
   },
