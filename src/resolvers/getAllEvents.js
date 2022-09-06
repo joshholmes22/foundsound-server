@@ -17,6 +17,6 @@ const getAllEvents = async (_, { input }) => {
     
       throw new ApolloError("Failed to find events");
     }
-}
-  
+}}
+
 module.exports = getAllEvents;

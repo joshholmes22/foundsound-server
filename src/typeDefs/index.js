@@ -40,6 +40,17 @@ const typeDefs = gql`
     fullAddress: String
   }
 
+  type eventsResponse {
+    name: String!
+    description: String!
+    startDateTime: String!
+    endDateTime: String!
+    venues: [Venue]
+    imageUrl: String
+    tag: ID
+    price: String!
+  }
+
   type AddressResponse {
     postcode: String
     latitude: String
@@ -121,12 +132,12 @@ const typeDefs = gql`
 
   type Query {
     addressLookup(postcode: String!): AddressResponse
+    getAllEvents(input: String!): eventsResponse
   }
   type Mutation {
     login(loginInput: LoginInput!): LoginSuccess
     signup(signupInput: SignupInput!): SignupSuccess
     createVenue(venueInput: VenueInput!): VenueSuccess
-    
   }
 `;
 
