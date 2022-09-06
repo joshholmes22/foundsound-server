@@ -54,9 +54,9 @@ const typeDefs = gql`
     description: String
     startDateTime: String
     endDateTime: String
-    venues: [Venue]
+    venue: ID
     imageUrl: String
-    tags: [Tag]
+    tag: [ID]
   }
   type Venue {
     address: Address!
