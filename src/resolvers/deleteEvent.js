@@ -1,11 +1,5 @@
 const { ApolloError, AuthenticationError } = require("apollo-server");
-const {
-  Venue,
-  AddressLookup,
-  User,
-  EventOrganiser,
-  Event,
-} = require("../models");
+const { Event } = require("../models");
 
 const deleteEvent = async (_, { input }, { user }) => {
   try {
@@ -14,7 +8,8 @@ const deleteEvent = async (_, { input }, { user }) => {
         "You must be logged in to delete an event ."
       );
     }
-    const deletedItem = await Item.findByIdAndDelete(EventId);
+    const { id } = input;
+    const deletedItem = await Event.findByIdAndDelete({ _id: id });
 
     return deletedItem;
   } catch (error) {

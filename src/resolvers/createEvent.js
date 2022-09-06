@@ -1,22 +1,23 @@
+const { ApolloError } = require("apollo-server");
 const { Venue, Tag, Event } = require("../models");
 
 const createEvent = async (_, { eventInput }) => {
   try {
-    if (!input) {
+    if (!eventInput) {
       throw new ApolloError("All required fields are not provided!");
     }
 
-    if (input) {
+    if (eventInput) {
       const event = await Event.create({
         ...eventInput,
       });
 
-      return { event };
+      return event;
     }
   } catch (error) {
-    console.log(`[ERROR]: Failed to create venue | ${error.message}`);
+    console.log(`[ERROR]: Failed to create event | ${error.message}`);
 
-    throw new ApolloError("Failed to create venue");
+    throw new ApolloError("Failed to create event");
   }
 };
 

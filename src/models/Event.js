@@ -39,7 +39,6 @@ const eventSchema = {
   },
   price: {
     type: Number,
-    required: true,
   },
 };
 
