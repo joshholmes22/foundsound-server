@@ -69,6 +69,13 @@ const typeDefs = gql`
     capacity: [String]
     facilities: String!
   }
+// not sure if this is correct?
+  input DeleteTicketInput {
+    success: Boolean!
+    noOfTickets: Int
+    bandShare: Int
+    fixedRate: Int
+  }
 
   type VenueSuccess {
     success: Boolean!
@@ -81,6 +88,7 @@ const typeDefs = gql`
     login(loginInput: LoginInput!): LoginSuccess
     signup(signupInput: SignupInput!): SignupSuccess
     createVenue(venueInput: VenueInput!): VenueSuccess
+    deleteTicket(deleteTicket: DeleteTicketInput!): TicketSuccess
   }
 `;
 
