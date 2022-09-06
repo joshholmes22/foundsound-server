@@ -20,9 +20,11 @@ const typeDefs = gql`
     country: String
     fullAddress: String
   }
+
   type Tag {
     name: String!
   }
+
   type Address {
     _id: ID!
     formatted_address: [String]
@@ -49,6 +51,7 @@ const typeDefs = gql`
     longitude: String
     addresses: [Address]
   }
+
   type EventResponse {
     name: String
     description: String
@@ -58,11 +61,13 @@ const typeDefs = gql`
     imageUrl: String
     tag: [ID]
   }
+
   type Venue {
     address: Address!
     capacity: [String]
     facilities: String!
   }
+
   type User {
     id: ID!
     firstName: String!
@@ -142,24 +147,14 @@ const typeDefs = gql`
   input TagInput {
     name: String!
   }
-  type VenueSuccess {
-    success: Boolean!
-  }
-
-  type DeleteEventSuccess {
-    success: Boolean!
-  }
 
   type Success {
     success: Boolean!
   }
 
-  type TagSuccess {
-    success: Boolean!
-  }
-
   type Query {
     addressLookup(postcode: String!): AddressResponse
+    tags: [Tag]
   }
   type Mutation {
     login(loginInput: LoginInput!): LoginSuccess
