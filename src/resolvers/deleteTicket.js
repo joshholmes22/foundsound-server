@@ -1,3 +1,5 @@
+const { ApolloError } = require("apollo-server");
+
 const { Ticket } = require("../models");
 
 // delete ticket function
