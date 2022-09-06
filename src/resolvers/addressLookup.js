@@ -1,9 +1,11 @@
+const { ApolloError } = require("apollo-server");
 const axios = require("axios");
-const { AddressLookup } = require("../models");
+const { AddressLookup, Address } = require("../models");
 const addressLookup = async (_, { postcode }) => {
   const addressesFromDB = await AddressLookup.findOne({
     postcode: postcode.toUpperCase().replace(" ", ""),
-  });
+  }).populate("addresses");
+  console.log(addressesFromDB);
 
   if (!addressesFromDB) {
     console.log(
@@ -22,10 +24,31 @@ const addressLookup = async (_, { postcode }) => {
         expand: true,
       },
     });
+    if (data.addresses.length > 0) {
+      // console.log(data);
+      const addressDocs = data.addresses.map(
+        async (address) => await Address.create(address)
+      );
+      const allAddresses = await Promise.all(addressDocs);
+      // console.log(allAddresses);
+      const addresses = allAddresses.map(({ _id }) => _id);
+      const addressLookupDoc = {
+        postcode,
+        latitude: data.latitude,
+        longitude: data.longitude,
+        addresses,
+      };
+      console.log(addressLookupDoc);
 
-    const addresses = await AddressLookup.create(data);
-
-    return addresses;
+      const addressCreate = await AddressLookup.create(addressLookupDoc);
+      const docs = await AddressLookup.findById(addressCreate._id).populate(
+        "addresses"
+      );
+      // console.log(JSON.stringify(addresses));
+      return docs;
+    } else {
+      throw new ApolloError("Invalid address");
+    }
   }
 
   console.log(
@@ -33,7 +56,7 @@ const addressLookup = async (_, { postcode }) => {
       .toUpperCase()
       .replace(" ", "")}`
   );
-
+  console.log(JSON.stringify(addressesFromDB));
   return addressesFromDB;
 };
 

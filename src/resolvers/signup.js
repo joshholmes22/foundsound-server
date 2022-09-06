@@ -1,36 +1,30 @@
 const { ApolloError } = require("apollo-server");
-const { User, AddressLookup } = require("../models");
+const { User, AddressLookup, EventOrganiser } = require("../models");
 
 const signup = async (_, { signupInput }) => {
-  const user = await User.findOne({ email: signupInput.email });
+  try {
+    const user = await User.findOne({ email: signupInput.email });
 
-  if (user) {
-    console.log(
-      `[ERROR]: Failed to signup | ${signupInput.email} already exists`
-    );
+    if (user) {
+      console.log(
+        `[ERROR]: Failed to signup | ${signupInput.email} already exists`
+      );
 
-    throw new ApolloError("Failed to signup");
+      throw new ApolloError("Failed to signup");
+    }
+
+    if (signupInput.userType === "eventOrganiser") {
+      const createUser = await User.create({
+        ...signupInput,
+      });
+      const { _id } = createUser;
+      await EventOrganiser.create({ user: _id });
+      return { success: true };
+    }
+  } catch (error) {
+    console.log(`Failed to signup | ${error.message}`);
+    throw new ApolloError("Failed to Signup");
   }
-  //   if (userType === "EventOrganiser") {
-  //     const address = await AddressLookup.findOne({
-  //       addresses: {
-  //         $elemMatch: {
-  //           _id: signupInput.address,
-  //         },
-  //       },
-  //     });
-  //   }
-
-  //   const yourAddress = address
-  //     .get("addresses")
-  //     .find((address) => address.get("_id").toString() === signupInput.address);
-
-  await User.create({
-    ...signupInput,
-    // address: yourAddress,
-  });
-
-  return { success: true };
 };
 
 module.exports = signup;
