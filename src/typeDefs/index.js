@@ -84,6 +84,13 @@ const typeDefs = gql`
     fixedRate: Int
   }
 
+  input UpdateTicketInput {
+    success: Boolean!
+    noOfTickets: Int
+    bandShare: Int
+    fixedRate: Int
+  }
+
   type VenueSuccess {
     success: Boolean!
   }
@@ -97,6 +104,7 @@ const typeDefs = gql`
     createVenue(venueInput: VenueInput!): VenueSuccess
     createTicket(createTicket: CreateTicketInput!): CreateSuccess
     deleteTicket(deleteTicket: DeleteTicketInput!): DeleteSuccess
+    updateTicket(updateTicket: UpdateTicketInput!): UpdateSuccess
   }
 `;
 
