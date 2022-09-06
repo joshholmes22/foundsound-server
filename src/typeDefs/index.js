@@ -70,29 +70,20 @@ const typeDefs = gql`
     facilities: String!
   }
 // not sure if this is correct?
-  input DeleteTicketInput {
-    success: Boolean!
-    noOfTickets: Int
-    bandShare: Int
-    fixedRate: Int
-  }
-
-  input CreateTicketInput {
-    success: Boolean!
-    noOfTickets: Int
-    bandShare: Int
-    fixedRate: Int
-  }
-
-  input UpdateTicketInput {
-    success: Boolean!
-    noOfTickets: Int
-    bandShare: Int
-    fixedRate: Int
-  }
-
+  
   type VenueSuccess {
     success: Boolean!
+  }
+  type Ticket{
+    hasPrice
+    noOfTickets
+    bandShare
+    fixedRate
+  }
+
+  type DeleteSuccess {
+    success: Boolean!
+    ticket: Ticket
   }
 
   type Query {
@@ -103,7 +94,7 @@ const typeDefs = gql`
     signup(signupInput: SignupInput!): SignupSuccess
     createVenue(venueInput: VenueInput!): VenueSuccess
     createTicket(createTicket: CreateTicketInput!): CreateSuccess
-    deleteTicket(deleteTicket: DeleteTicketInput!): DeleteSuccess
+    deleteTicket(id: ID!): DeleteSuccess
     updateTicket(updateTicket: UpdateTicketInput!): UpdateSuccess
   }
 `;

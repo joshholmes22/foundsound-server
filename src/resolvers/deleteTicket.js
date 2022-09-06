@@ -6,7 +6,7 @@ const { Ticket } = require("../models");
 const deleteTicket = async (_, { id }) => {
   const ticket = await Ticket.deleteOne({ id });
 
-  return ticket;
+  return { success: true, ticket };
 };
 
 module.exports = deleteTicket;
