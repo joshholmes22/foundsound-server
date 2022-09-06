@@ -126,6 +126,7 @@ const typeDefs = gql`
     login(loginInput: LoginInput!): LoginSuccess
     signup(signupInput: SignupInput!): SignupSuccess
     createVenue(venueInput: VenueInput!): VenueSuccess
+    
   }
 `;
 
