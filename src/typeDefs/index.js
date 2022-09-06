@@ -81,6 +81,11 @@ const typeDefs = gql`
     fixedRate
   }
 
+  type CreateSuccess {
+    success: Boolean!
+    ticket: Ticket
+  }
+
   type DeleteSuccess {
     success: Boolean!
     ticket: Ticket
@@ -93,7 +98,7 @@ const typeDefs = gql`
     login(loginInput: LoginInput!): LoginSuccess
     signup(signupInput: SignupInput!): SignupSuccess
     createVenue(venueInput: VenueInput!): VenueSuccess
-    createTicket(createTicket: CreateTicketInput!): CreateSuccess
+    createTicket(id: ID!): CreateSuccess
     deleteTicket(id: ID!): DeleteSuccess
     updateTicket(updateTicket: UpdateTicketInput!): UpdateSuccess
   }
