@@ -3,6 +3,7 @@ const signup = require("./signup");
 const addressLookup = require("./addressLookup");
 const createVenue = require("./createVenue");
 const deleteTicket = require("./deleteTicket");
+const createTicket = require("./createTicket");
 
 const resolvers = {
   Query: {
@@ -13,6 +14,7 @@ const resolvers = {
     signup,
     createVenue,
     deleteTicket,
+    createTicket,
   },
 };
 
