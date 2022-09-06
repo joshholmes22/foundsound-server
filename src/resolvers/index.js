@@ -1,7 +1,8 @@
 const login = require("./login");
 const signup = require("./signup");
 const addressLookup = require("./addressLookup");
-const createVenue = require("./createVenue");
+const createVenue = require("./createVenue");#
+const createAd = require("./createAd");
 
 const resolvers = {
   Query: {
@@ -11,6 +12,7 @@ const resolvers = {
     login,
     signup,
     createVenue,
+    createAd,
   },
 };
 
