@@ -9,7 +9,7 @@ const updateTicket = async (_, { input }) => {
     { new: true }
   );
 
-  return ticket;
+  return { success: true, ticket };
 };
 
 module.exports = updateTicket;

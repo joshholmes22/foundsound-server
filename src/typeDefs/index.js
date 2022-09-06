@@ -91,6 +91,11 @@ const typeDefs = gql`
     ticket: Ticket
   }
 
+  type UpdateSuccess {
+    success: Boolean!
+    ticket: Ticket
+  }
+
   type Query {
     addressLookup(postcode: String!): AddressResponse
   }
@@ -100,7 +105,7 @@ const typeDefs = gql`
     createVenue(venueInput: VenueInput!): VenueSuccess
     createTicket(id: ID!): CreateSuccess
     deleteTicket(id: ID!): DeleteSuccess
-    updateTicket(updateTicket: UpdateTicketInput!): UpdateSuccess
+    updateTicket(id: ID!): UpdateSuccess
   }
 `;
 
