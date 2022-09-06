@@ -20,6 +20,9 @@ const typeDefs = gql`
     country: String
     fullAddress: String
   }
+  type Tag {
+    name: String!
+  }
   type Address {
     _id: ID!
     formatted_address: [String]
@@ -56,6 +59,15 @@ const typeDefs = gql`
     latitude: String
     longitude: String
     addresses: [Address]
+  }
+  type EventResponse {
+    name: String
+    description: String
+    startDateTime: String
+    endDateTime: String
+    venue: ID
+    imageUrl: String
+    tag: [ID]
   }
   type Venue {
     address: Address!
@@ -117,7 +129,9 @@ const typeDefs = gql`
     socialMedia: String
     userType: String!
   }
-
+  input DeleteEventInput {
+    id: ID!
+  }
   input VenueInput {
     address: AddressInput!
     capacity: String!
@@ -125,8 +139,21 @@ const typeDefs = gql`
     userType: String!
     _id: ID!
   }
-
+  input EventInput {
+    name: String!
+    description: String!
+    startDateTime: String!
+    endDateTime: String!
+    venue: ID!
+    imageUrl: String!
+    tags: [ID]
+    price: Float
+  }
   type VenueSuccess {
+    success: Boolean!
+  }
+
+  type DeleteEventSuccess {
     success: Boolean!
   }
 
@@ -138,6 +165,8 @@ const typeDefs = gql`
     login(loginInput: LoginInput!): LoginSuccess
     signup(signupInput: SignupInput!): SignupSuccess
     createVenue(venueInput: VenueInput!): VenueSuccess
+    deleteEvent(input: DeleteEventInput!): DeleteEventSuccess
+    createEvent(eventInput: EventInput!): EventResponse
   }
 `;
 
