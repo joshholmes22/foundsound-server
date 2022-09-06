@@ -138,11 +138,23 @@ const typeDefs = gql`
     tags: [ID]
     price: Float
   }
+
+  input TagInput {
+    name: String!
+  }
   type VenueSuccess {
     success: Boolean!
   }
 
   type DeleteEventSuccess {
+    success: Boolean!
+  }
+
+  type Success {
+    success: Boolean!
+  }
+
+  type TagSuccess {
     success: Boolean!
   }
 
@@ -152,9 +164,10 @@ const typeDefs = gql`
   type Mutation {
     login(loginInput: LoginInput!): LoginSuccess
     signup(signupInput: SignupInput!): SignupSuccess
-    createVenue(venueInput: VenueInput!): VenueSuccess
-    deleteEvent(input: DeleteEventInput!): DeleteEventSuccess
+    createVenue(venueInput: VenueInput!): Success
+    deleteEvent(input: DeleteEventInput!): Success
     createEvent(eventInput: EventInput!): EventResponse
+    createTag(input: TagInput!): Success
   }
 `;
 
