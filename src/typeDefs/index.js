@@ -53,6 +53,12 @@ const typeDefs = gql`
     email: String!
     password: String!
   }
+
+  input TicketUpdateInput {
+    email: String!
+    password: String!
+  }
+
   input SignupInput {
     firstName: String!
     lastName: String!
@@ -103,9 +109,9 @@ const typeDefs = gql`
     login(loginInput: LoginInput!): LoginSuccess
     signup(signupInput: SignupInput!): SignupSuccess
     createVenue(venueInput: VenueInput!): VenueSuccess
-    createTicket(id: ID!): CreateSuccess
+    createTicket(input: TicketUpdateInput): CreateSuccess
     deleteTicket(id: ID!): DeleteSuccess
-    updateTicket(id: ID!): UpdateSuccess
+    updateTicket(input: TicketUpdateInput, id: ID!): UpdateSuccess
   }
 `;
 

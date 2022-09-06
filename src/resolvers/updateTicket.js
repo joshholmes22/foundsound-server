@@ -2,10 +2,9 @@ const { ApolloError } = require("apollo-server");
 
 const { Ticket } = require("../models");
 
-const updateTicket = async (_, { input }) => {
+const updateTicket = async (_, { input, id }) => {
   const ticket = await Ticket.findOneAndUpdate(
-    { "ticket._id": input.id },
-    { $set: { "ticket.$.confirmed": input.confirmed } },
+    { "ticket._id": id },
     { new: true }
   );
 
