@@ -7,7 +7,7 @@ const getAllEvents = async (_, { input }) => {
         throw new ApolloError("All required fields are provided");
     }
     if (events){
-        const allEvents = await Event.findAll({ name, description, startDateTime, endDateTime, venue, imageUrl, tags, price });
+        const allEvents = await Event.findAll({});
         return {success: true, allEvents};
 
     } else {

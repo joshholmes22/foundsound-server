@@ -47,7 +47,7 @@ const typeDefs = gql`
     endDateTime: String!
     venues: [Venue]
     imageUrl: String
-    tag: ID
+    tags: [Tag]
     price: String!
   }
 
@@ -132,7 +132,7 @@ const typeDefs = gql`
 
   type Query {
     addressLookup(postcode: String!): AddressResponse
-    getAllEvents(input: String!): eventsResponse
+    getAllEvents: [Event]
   }
   type Mutation {
     login(loginInput: LoginInput!): LoginSuccess
