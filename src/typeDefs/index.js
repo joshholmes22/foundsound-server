@@ -20,9 +20,11 @@ const typeDefs = gql`
     country: String
     fullAddress: String
   }
+
   type Tag {
     name: String!
   }
+
   type Address {
     _id: ID!
     formatted_address: [String]
@@ -62,18 +64,6 @@ const typeDefs = gql`
     address: Address!
     capacity: [String]
     facilities: String!
-  }
-  type Tag {
-    name: String!
-  }
-  type EventResponse {
-    name: String
-    description: String
-    startDateTime: String
-    endDateTime: String
-    venues: [Venue]
-    imageUrl: String
-    tags: [Tag]
   }
   type User {
     id: ID!
@@ -133,11 +123,10 @@ const typeDefs = gql`
     userType: String!
     address: ID
   }
-<<<<<<< HEAD
-=======
   input DeleteEventInput {
     id: ID!
   }
+
   input VenueInput {
     address: AddressInput!
     capacity: String!
@@ -145,16 +134,18 @@ const typeDefs = gql`
     userType: String!
     _id: ID!
   }
-  input EventInput {
+
+  input CreateEventInput {
     name: String!
     description: String!
     startDateTime: String!
     endDateTime: String!
     venue: ID!
-    imageUrl: String!
+    imageUrl: String
     tags: [ID]
     price: Float
   }
+
   type VenueSuccess {
     success: Boolean!
   }
@@ -167,6 +158,7 @@ const typeDefs = gql`
   type Query {
     addressLookup(postcode: String!): AddressResponse
   }
+
   type Mutation {
     login(loginInput: LoginInput!): LoginSuccess
     signup(signupInput: SignupInput!): SignupSuccess
@@ -175,7 +167,6 @@ const typeDefs = gql`
     createVenue(venueInput: VenueInput!): VenueSuccess
     deleteEvent(input: DeleteEventInput!): DeleteEventSuccess
     createEvent(eventInput: EventInput!): EventResponse
->>>>>>> b7a56649ac6d0633cece488ddc80d5193c9a1394
   }
 `;
 
