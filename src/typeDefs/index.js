@@ -20,11 +20,9 @@ const typeDefs = gql`
     country: String
     fullAddress: String
   }
-
   type Tag {
     name: String!
   }
-
   type Address {
     _id: ID!
     formatted_address: [String]
@@ -44,25 +42,26 @@ const typeDefs = gql`
     country: String
     fullAddress: String
   }
-
   type AddressResponse {
     postcode: String
     latitude: String
     longitude: String
     addresses: [Address]
   }
-  type EventResponse {
-    name: String
-    description: String
-    startDateTime: String
-    endDateTime: String
-    venue: ID
+  type Event {
+    id: ID!
+    name: String!
+    description: String!
+    startDateTime: String!
+    endDateTime: String!
+    venue: Venue!
     imageUrl: String
-    tag: [ID]
+    tags: [Tag]
+    price: Float
   }
   type Venue {
     address: Address!
-    capacity: [String]
+    capacity: String
     facilities: String!
   }
   type User {
@@ -75,13 +74,11 @@ const typeDefs = gql`
     socialMedia: String
     userType: String!
   }
-
   type EventOrganiser {
     user: ID
     venue: ID
     verificationCode: String
   }
-
   type Artist {
     name: String
     user: ID
@@ -89,29 +86,24 @@ const typeDefs = gql`
     tag: ID
     rider: String
   }
-
   type AudienceMember {
     user: ID
     booking: [String]
     favouriteArtists: String
     favouriteEvents: String
   }
-
   type SignupSuccess {
     success: Boolean!
   }
-
   type LoginSuccess {
     success: Boolean!
     token: String!
     user: User!
   }
-
   input LoginInput {
     email: String!
     password: String!
   }
-
   input SignupInput {
     firstName: String!
     lastName: String!
@@ -121,12 +113,10 @@ const typeDefs = gql`
     imageFileName: String
     socialMedia: String
     userType: String!
-    address: ID
   }
   input DeleteEventInput {
     id: ID!
   }
-
   input VenueInput {
     address: AddressInput!
     capacity: String!
@@ -134,7 +124,6 @@ const typeDefs = gql`
     userType: String!
     _id: ID!
   }
-
   input CreateEventInput {
     name: String!
     description: String!
@@ -145,28 +134,21 @@ const typeDefs = gql`
     tags: [ID]
     price: Float
   }
-
   type VenueSuccess {
     success: Boolean!
   }
-
   type DeleteEventSuccess {
     success: Boolean!
   }
-
->>>>>>> b7a56649ac6d0633cece488ddc80d5193c9a1394
   type Query {
     addressLookup(postcode: String!): AddressResponse
   }
-
   type Mutation {
     login(loginInput: LoginInput!): LoginSuccess
     signup(signupInput: SignupInput!): SignupSuccess
-<<<<<<< HEAD
-=======
     createVenue(venueInput: VenueInput!): VenueSuccess
     deleteEvent(input: DeleteEventInput!): DeleteEventSuccess
-    createEvent(eventInput: EventInput!): EventResponse
+    createEvent(createEventInput: CreateEventInput!): Event
   }
 `;
 
