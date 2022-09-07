@@ -36,22 +36,10 @@ const eventSchema = {
   tags: [
     {
       type: Schema.Types.ObjectId,
-<<<<<<< HEAD
-<<<<<<< HEAD
+
       ref: "Tag",
     },
   ],
-=======
-      ref: "Tags",
-=======
-      ref: "Tag",
->>>>>>> 9c4658893733b8e59c599c3d055dfeabb3b69356
-    },
-  ],
-  price: {
-    type: Number,
-  },
->>>>>>> b7a56649ac6d0633cece488ddc80d5193c9a1394
 };
 
 const schema = new Schema(eventSchema);

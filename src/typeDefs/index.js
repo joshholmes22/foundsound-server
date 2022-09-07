@@ -132,7 +132,6 @@ const typeDefs = gql`
     venue: ID!
     imageUrl: String
     tags: [ID]
-    price: Float
   }
   type VenueSuccess {
     success: Boolean!
