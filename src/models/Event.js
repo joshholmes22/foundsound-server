@@ -14,19 +14,28 @@ const eventSchema = {
     minLength: 10,
     trim: true,
   },
-  startDateTime: {
+  startDate: {
     type: Date,
     required: true,
     trim: true,
   },
-  endDateTime: {
+  endDate: {
     type: Date,
+    required: true,
+    trim: true,
+  },
+  time: {
+    type: String,
     required: true,
     trim: true,
   },
   venue: {
     type: Schema.Types.ObjectId,
     ref: "Venue",
+    required: true,
+  },
+  postcode: {
+    type: String,
     required: true,
   },
   imageUrl: {
@@ -36,7 +45,6 @@ const eventSchema = {
   tags: [
     {
       type: Schema.Types.ObjectId,
-
       ref: "Tag",
     },
   ],

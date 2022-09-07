@@ -52,10 +52,12 @@ const typeDefs = gql`
     id: ID!
     name: String!
     description: String!
-    startDateTime: String!
-    endDateTime: String!
+    startDate: String!
+    endDate: String!
+    time: String!
     venue: Venue!
     imageUrl: String
+    postcode: String
     tags: [Tag]
     price: Float
   }
@@ -127,9 +129,11 @@ const typeDefs = gql`
   input CreateEventInput {
     name: String!
     description: String!
-    startDateTime: String!
-    endDateTime: String!
+    startDate: String!
+    endDate: String!
+    time: String!
     venue: ID!
+    postcode: String
     imageUrl: String
     tags: [ID]
   }
