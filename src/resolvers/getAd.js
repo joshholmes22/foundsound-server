@@ -19,4 +19,4 @@ const getAd = async (_, { adInput }) => {
   }
 };
 
-module.exports = createAd;
+module.exports = getAd;
