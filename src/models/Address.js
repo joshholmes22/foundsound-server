@@ -1,4 +1,4 @@
-const { Schema, model } = require("mongoose");
+const { Schema } = require("mongoose");
 
 const addressSchema = {
   formatted_address: [{ type: String }],
@@ -31,6 +31,5 @@ const schema = new Schema(addressSchema, options);
 schema.virtual("fullAddress").get(function () {
   return this.formatted_address.filter((each) => each).join(", ");
 });
-const Address = model("Address", schema);
 
-module.exports = Address;
+module.exports = schema;
