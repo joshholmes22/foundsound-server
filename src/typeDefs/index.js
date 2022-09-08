@@ -42,6 +42,7 @@ const typeDefs = gql`
     country: String
     fullAddress: String
   }
+
   type AddressResponse {
     postcode: String
     latitude: String
@@ -145,6 +146,7 @@ const typeDefs = gql`
   }
   type Query {
     addressLookup(postcode: String!): AddressResponse
+    getAllEvents: [Event]
   }
   type Mutation {
     login(loginInput: LoginInput!): LoginSuccess
