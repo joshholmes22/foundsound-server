@@ -144,6 +144,41 @@ const typeDefs = gql`
   type DeleteEventSuccess {
     success: Boolean!
   }
+
+  type Ad {
+    event: Event!
+    isPaid: Boolean!
+    expires: String!
+  }
+
+  input inputTag {
+    name: String!
+  }
+
+  input inputEvent {
+    id: ID!
+    name: String!
+    description: String!
+    startDate: String!
+    endDate: String!
+    time: String!
+    venue: VenueInput!
+    imageUrl: String
+    postcode: String
+    tags: [inputTag]
+    price: Float
+  }
+
+  input CreateAd {
+    event: inputEvent!
+    isPaid: Boolean!
+    expires: String!
+  }
+
+  type CreateAdSuccess {
+    success: Boolean!
+  }
+
   type Query {
     addressLookup(postcode: String!): AddressResponse
     getAllEvents: [Event]
@@ -154,6 +189,7 @@ const typeDefs = gql`
     createVenue(venueInput: VenueInput!): VenueSuccess
     deleteEvent(input: DeleteEventInput!): DeleteEventSuccess
     createEvent(createEventInput: CreateEventInput!): Event
+    createAd(createAd: CreateAd!): CreateAdSuccess
   }
 `;
 
