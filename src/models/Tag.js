@@ -8,5 +8,7 @@ const tagSchema = {
 };
 
 const schema = new Schema(tagSchema);
+
 const Tag = model("Tag", schema);
+
 module.exports = Tag;

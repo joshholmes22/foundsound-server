@@ -25,9 +25,9 @@ const createVenue = async (_, { venueInput }) => {
       throw new AuthenticationError("Unauthorized access");
     }
   } catch (error) {
-    console.log(`[ERROR]: Failed to create event | ${error.message}`);
+    console.log(`[ERROR]: Failed to create venue | ${error.message}`);
 
-    throw new ApolloError("Failed to create event");
+    throw new ApolloError("Failed to create venue");
   }
 };
 
