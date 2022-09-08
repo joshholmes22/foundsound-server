@@ -6,6 +6,8 @@ const createEvent = async (_, { createEventInput }) => {
   try {
     const newEvent = await Event.create(createEventInput);
 
+    console.log("newEvent: " + newEvent);
+
     const event = await Event.findById(newEvent.get("_id"))
       .populate({
         path: "venue",
@@ -14,7 +16,7 @@ const createEvent = async (_, { createEventInput }) => {
           model: "Address",
         },
       })
-      .populate("tags");
+      .populate("Tag");
 
     return event;
   } catch (error) {
