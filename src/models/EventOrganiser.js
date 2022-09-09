@@ -5,12 +5,6 @@ const EventOrganiserSchema = {
     type: Schema.Types.ObjectId,
     ref: "User",
   },
-  venue: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Venue",
-    },
-  ],
   verificationCode: {
     type: String,
     enum: ["pending", "rejected", "completed"],

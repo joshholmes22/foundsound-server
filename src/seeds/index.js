@@ -1,10 +1,8 @@
 const connectToDatabase = require("../config/connection");
-const { Venue, Tag } = require("../models");
+const { Tag } = require("../models");
 const { seedTags } = require("./tag");
-const { seedVenues } = require("./venues");
 
 const clearCollections = async () => {
-  await Venue.deleteMany({});
   await Tag.deleteMany({});
 };
 
@@ -18,9 +16,6 @@ const init = async () => {
 
     // seed tags
     await seedTags();
-
-    // seed venues
-    await seedVenues();
   } catch (error) {
     console.log(`[ERROR]: Failed to seed DB | ${error.message}`);
   }

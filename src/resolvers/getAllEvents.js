@@ -14,7 +14,6 @@ const getAllEvents = async (_, { input }) => {
       //     startDate: "abc",
       //     endDate: "abc",
       //     time: "abc",
-      //     venue: { address: {} },
       //     imageUrl: "abc",
       //     postcode: "abc",
       //     tags: ["abcd"],

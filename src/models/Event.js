@@ -1,5 +1,7 @@
 const { Schema, model } = require("mongoose");
 
+const Address = require("./Address");
+
 const eventSchema = {
   name: {
     type: String,
@@ -14,6 +16,13 @@ const eventSchema = {
     minLength: 10,
     trim: true,
   },
+  address: {
+    type: Address,
+  },
+  postcode: {
+    type: String,
+    required: true,
+  },
   startDate: {
     type: Date,
     required: true,
@@ -24,19 +33,39 @@ const eventSchema = {
     required: true,
     trim: true,
   },
-  time: {
+  startTime: {
     type: String,
     required: true,
     trim: true,
   },
-  venue: {
-    type: Schema.Types.ObjectId,
-    ref: "Venue",
-    required: true,
-  },
-  postcode: {
+  endTime: {
     type: String,
     required: true,
+    trim: true,
+  },
+  facilities: [
+    {
+      type: String,
+      enum: [
+        "none",
+        "hasFood",
+        "isAcessibile",
+        "hasCurfew",
+        "asAlcoholLicense",
+        "hasDressingRooms",
+        "hasSmokingArea",
+        "hasSeating",
+        "isDogFriendly",
+        "hasCloakRoom",
+        "hasShoweringFacilities",
+        "hasToilets",
+        "hygeineRating",
+      ],
+      default: "none",
+    },
+  ],
+  capacity: {
+    type: Number,
   },
   imageUrl: {
     type: String,
@@ -50,7 +79,15 @@ const eventSchema = {
   ],
 };
 
-const schema = new Schema(eventSchema);
+const options = {
+  toJSON: {
+    virtuals: true,
+    getters: true,
+  },
+  id: true,
+};
+
+const schema = new Schema(eventSchema, options);
 
 const Event = model("Event", schema);
 

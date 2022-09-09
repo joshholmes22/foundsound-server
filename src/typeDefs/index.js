@@ -20,9 +20,7 @@ const typeDefs = gql`
     country: String
     fullAddress: String
   }
-  type Tag {
-    name: String!
-  }
+
   type Address {
     _id: ID!
     formatted_address: [String]
@@ -49,24 +47,25 @@ const typeDefs = gql`
     longitude: String
     addresses: [Address]
   }
+
+  type Tag {
+    name: String!
+  }
+
   type Event {
     id: ID!
     name: String!
     description: String!
+    address: Address!
+    postcode: String!
     startDate: String!
     endDate: String!
-    time: String!
-    venue: Venue!
+    startTime: String!
+    endTime: String!
     imageUrl: String
-    postcode: String
     tags: [Tag]
-    price: Float
   }
-  type Venue {
-    address: Address!
-    capacity: String
-    facilities: String!
-  }
+
   type User {
     id: ID!
     firstName: String!
@@ -77,9 +76,9 @@ const typeDefs = gql`
     socialMedia: String
     userType: String!
   }
+
   type EventOrganiser {
     user: ID
-    venue: ID
     verificationCode: String
   }
   type Artist {
@@ -120,27 +119,22 @@ const typeDefs = gql`
   input DeleteEventInput {
     id: ID!
   }
-  input VenueInput {
-    address: AddressInput!
-    capacity: String!
-    facilities: String!
-    userType: String!
-    _id: ID!
-  }
+
   input CreateEventInput {
     name: String!
     description: String!
+    address: ID!
+    postcode: String!
     startDate: String!
     endDate: String!
-    time: String!
-    venue: ID!
-    postcode: String
+    startTime: String!
+    endTime: String!
+    facilities: [String]
+    capacity: Int
     imageUrl: String
     tags: [ID]
   }
-  type VenueSuccess {
-    success: Boolean!
-  }
+
   type DeleteEventSuccess {
     success: Boolean!
   }
@@ -162,7 +156,6 @@ const typeDefs = gql`
     startDate: String!
     endDate: String!
     time: String!
-    venue: VenueInput!
     imageUrl: String
     postcode: String
     tags: [inputTag]
@@ -170,7 +163,7 @@ const typeDefs = gql`
   }
 
   input CreateAd {
-    event: inputEvent!
+    event: ID!
     isPaid: Boolean!
     expires: String!
   }
@@ -186,9 +179,8 @@ const typeDefs = gql`
   type Mutation {
     login(loginInput: LoginInput!): LoginSuccess
     signup(signupInput: SignupInput!): SignupSuccess
-    createVenue(venueInput: VenueInput!): VenueSuccess
-    deleteEvent(input: DeleteEventInput!): DeleteEventSuccess
     createEvent(createEventInput: CreateEventInput!): Event
+    deleteEvent(input: DeleteEventInput!): DeleteEventSuccess
     createAd(createAd: CreateAd!): CreateAdSuccess
   }
 `;

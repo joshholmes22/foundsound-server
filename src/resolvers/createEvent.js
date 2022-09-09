@@ -1,22 +1,29 @@
 const { ApolloError } = require("apollo-server");
 
-const { Event } = require("../models");
+const { Event, AddressLookup } = require("../models");
 
 const createEvent = async (_, { createEventInput }) => {
   try {
-    const newEvent = await Event.create(createEventInput);
-
-    console.log("newEvent: " + newEvent);
-
-    const event = await Event.findById(newEvent.get("_id"))
-      .populate({
-        path: "venue",
-        populate: {
-          path: "address",
-          model: "Address",
+    const address = await AddressLookup.findOne({
+      addresses: {
+        $elemMatch: {
+          _id: createEventInput.address,
         },
-      })
-      .populate("Tag");
+      },
+    });
+
+    const yourAddress = address
+      .get("addresses")
+      .find(
+        (address) => address.get("_id").toString() === createEventInput.address
+      );
+
+    const newEvent = await Event.create({
+      ...createEventInput,
+      address: yourAddress,
+    });
+
+    const event = await Event.findById(newEvent.get("_id")).populate("tags");
 
     return event;
   } catch (error) {
