@@ -162,7 +162,7 @@ const typeDefs = gql`
     price: Float
   }
 
-  input CreateAd {
+  input CreateAdvertInput {
     event: ID!
     isPaid: Boolean!
     expires: String!
@@ -176,12 +176,12 @@ const typeDefs = gql`
     addressLookup(postcode: String!): AddressResponse
     getAllEvents: [Event]
   }
+
   type Mutation {
     login(loginInput: LoginInput!): LoginSuccess
     signup(signupInput: SignupInput!): SignupSuccess
     createEvent(createEventInput: CreateEventInput!): Event
-    deleteEvent(input: DeleteEventInput!): DeleteEventSuccess
-    createAd(createAd: CreateAd!): CreateAdSuccess
+    createAdvert(createAdvertInput: CreateAdvertInput!): Event
   }
 `;
 

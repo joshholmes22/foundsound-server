@@ -1,6 +1,7 @@
 const { Schema, model } = require("mongoose");
 
 const Address = require("./Address");
+const Advert = require("./Advert");
 
 const eventSchema = {
   name: {
@@ -75,6 +76,11 @@ const eventSchema = {
     {
       type: Schema.Types.ObjectId,
       ref: "Tag",
+    },
+  ],
+  ads: [
+    {
+      type: Advert,
     },
   ],
 };
