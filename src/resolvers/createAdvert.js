@@ -1,22 +1,21 @@
 const { ApolloError } = require("apollo-server");
-const { Ad } = require("../models");
+const { Event } = require("../models");
 
-const createAd = async (_, { adInput }) => {
+const createAdvert = async (_, { createAdvertInput }) => {
   try {
-    if (!adInput) {
-      throw new ApolloError("All required fields are not provided!");
-    } else {
-      const ad = await Ad.create({
-        ...adInput,
-      });
+    const findAd = await Event.findByIdAndUpdate(
+      createAdvertInput.event,
+      {
+        $push: { adverts: createAdvertInput },
+      },
+      { new: true }
+    ).populate("tags");
 
-      return ad;
-    }
+    return findAd;
   } catch (error) {
-    console.log(`[ERROR]: Failed to create ad | ${error.message}`);
-
-    throw new ApolloError("Failed to create ad");
+    console.log(`[ERROR]: Failed to create advert | ${error.message}`);
+    throw new ApolloError("Failed to create advert");
   }
 };
 
-module.exports = createAd;
+module.exports = createAdvert;

@@ -78,7 +78,7 @@ const eventSchema = {
       ref: "Tag",
     },
   ],
-  ads: [
+  adverts: [
     {
       type: Advert,
     },

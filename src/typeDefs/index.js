@@ -64,6 +64,7 @@ const typeDefs = gql`
     endTime: String!
     imageUrl: String
     tags: [Tag]
+    adverts: [Advert]
   }
 
   type User {
@@ -139,8 +140,8 @@ const typeDefs = gql`
     success: Boolean!
   }
 
-  type Ad {
-    event: Event!
+  type Advert {
+    event: ID!
     isPaid: Boolean!
     expires: String!
   }
