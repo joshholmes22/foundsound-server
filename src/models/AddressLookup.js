@@ -18,8 +18,7 @@ const addressLookupSchema = {
   },
   addresses: [
     {
-      type: Schema.Types.ObjectId,
-      ref: "Address",
+      type: Address,
     },
   ],
 };
