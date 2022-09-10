@@ -19,12 +19,13 @@ const authMiddleware = ({ req }) => {
     token = token.split(" ").pop().trim();
   }
 
+  console.log(token);
   if (!token) {
     return req;
   }
 
   try {
-    const data = jwt.verify(token, secret, { maxAge: expiresIn });
+    const data = jwt.verify(token, JWT_SECRET, { maxAge: EXP_TIME });
 
     req.user = data;
   } catch (error) {

@@ -131,9 +131,9 @@ const typeDefs = gql`
     startTime: String!
     endTime: String!
     facilities: [String]
-    capacity: Int
+    capacity: String
     imageUrl: String
-    tags: [ID]
+    tags: [inputTag]
   }
 
   type DeleteEventSuccess {
@@ -151,7 +151,6 @@ const typeDefs = gql`
   }
 
   input inputEvent {
-    id: ID!
     name: String!
     description: String!
     startDate: String!
