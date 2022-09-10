@@ -19,14 +19,21 @@ const artistSchema = {
     type: String,
     required: false,
   },
-
-  tag: {
-    type: Schema.Types.ObjectId,
-    ref: "Tag",
-  },
+  tag: [
+    {
+      name: { type: String },
+    },
+  ],
   rider: {
     type: String,
     required: false,
+  },
+  artistImage: {
+    type: String,
+  },
+
+  artistImageName: {
+    type: String,
   },
 };
 
