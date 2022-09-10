@@ -4,11 +4,13 @@ const addressLookup = require("./addressLookup");
 const createAdvert = require("./createAdvert");
 const createEvent = require("./createEvent");
 const getAllEvents = require("./getAllEvents");
+const getAnEvent = require("./getAnEvent");
 
 const resolvers = {
   Query: {
     addressLookup,
     getAllEvents,
+    getAnEvent,
   },
   Mutation: {
     login,
