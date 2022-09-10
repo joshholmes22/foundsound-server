@@ -5,6 +5,7 @@ const createAdvert = require("./createAdvert");
 const createEvent = require("./createEvent");
 const getAllEvents = require("./getAllEvents");
 const getAnEvent = require("./getAnEvent");
+const createArtistProfile = require("./createArtistProfile");
 
 const resolvers = {
   Query: {
@@ -17,6 +18,7 @@ const resolvers = {
     signup,
     createEvent,
     createAdvert,
+    createArtistProfile,
   },
 };
 
