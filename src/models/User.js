@@ -45,7 +45,6 @@ const userSchema = {
   },
   imageFileName: {
     type: String,
-    required: true,
     trim: true,
   },
   userType: {

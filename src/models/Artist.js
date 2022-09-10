@@ -3,7 +3,6 @@ const { Schema, model } = require("mongoose");
 const artistSchema = {
   name: {
     type: String,
-    unique: true,
     trim: true,
   },
   user: {
