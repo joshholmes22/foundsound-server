@@ -9,10 +9,17 @@ const artistSchema = {
     type: Schema.Types.ObjectId,
     ref: "User",
   },
+  artists: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
+  ],
   demoSong: {
     type: String,
     required: false,
   },
+
   tag: {
     type: Schema.Types.ObjectId,
     ref: "Tag",
