@@ -19,7 +19,6 @@ const authMiddleware = ({ req }) => {
     token = token.split(" ").pop().trim();
   }
 
-  console.log(token);
   if (!token) {
     return req;
   }

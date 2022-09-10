@@ -65,6 +65,7 @@ const typeDefs = gql`
     imageUrl: String
     tags: [Tag]
     adverts: [Advert]
+    eventOwner: User
   }
 
   type User {

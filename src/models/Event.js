@@ -82,6 +82,10 @@ const eventSchema = {
       type: Advert,
     },
   ],
+  eventOwner: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+  },
 };
 
 const options = {

@@ -2,8 +2,10 @@ const { ApolloError } = require("apollo-server");
 
 const { Event, AddressLookup } = require("../models");
 
-const createEvent = async (_, { createEventInput }) => {
+const createEvent = async (_, { createEventInput }, { user }) => {
   try {
+    createEventInput.eventOwner = user.id;
+    // for the user.id get the status
     const address = await AddressLookup.findOne({
       addresses: {
         $elemMatch: {
@@ -23,7 +25,7 @@ const createEvent = async (_, { createEventInput }) => {
       address: yourAddress,
     });
 
-    const event = await Event.findById(newEvent.get("_id")).populate("tags");
+    const event = await Event.findById(newEvent.get("_id"));
 
     return event;
   } catch (error) {
