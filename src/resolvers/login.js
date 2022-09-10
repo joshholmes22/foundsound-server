@@ -34,6 +34,7 @@ const login = async (_, { loginInput }) => {
       socialMedia: user.get("socialMedia"),
       imageUrl: user.get("imageUrl"),
       userType: user.get("userType"),
+      imageFileName: user.get("imageFileName"),
     };
 
     return {
