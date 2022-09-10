@@ -3,7 +3,7 @@ const { Event } = require("../models");
 
 const getAnEvent = async (_, { eventId }) => {
   try {
-    const event = await Event.findById(eventId).populate("tags");
+    const event = await Event.findById(eventId);
 
     return event;
   } catch (error) {

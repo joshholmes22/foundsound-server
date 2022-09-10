@@ -9,7 +9,7 @@ const createAdvert = async (_, { createAdvertInput }) => {
         $push: { adverts: createAdvertInput },
       },
       { new: true }
-    ).populate("tags");
+    );
 
     return findAd;
   } catch (error) {
