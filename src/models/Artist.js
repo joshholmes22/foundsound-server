@@ -9,17 +9,13 @@ const artistSchema = {
     type: Schema.Types.ObjectId,
     ref: "User",
   },
-  artists: [
+  demoSong: [
     {
-      type: Schema.Types.ObjectId,
-      ref: "User",
+      type: String,
+      required: false,
     },
   ],
-  demoSong: {
-    type: String,
-    required: false,
-  },
-  tag: [
+  tags: [
     {
       name: { type: String },
     },

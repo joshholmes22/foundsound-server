@@ -84,11 +84,14 @@ const typeDefs = gql`
     verificationCode: String
   }
   type Artist {
-    name: String
+    name: String!
     user: ID
-    demoSong: String
-    tag: ID
+    artists: [ID]
+    demoSong: [String]
+    tags: [inputTag]
     rider: String
+    artistImage: String
+    artistImageName: String
   }
   type AudienceMember {
     user: ID
@@ -134,7 +137,7 @@ const typeDefs = gql`
     facilities: [String]
     capacity: String
     imageUrl: String
-    tags: [inputTag]
+    tags: [InputTag]
   }
 
   type DeleteEventSuccess {
@@ -147,7 +150,7 @@ const typeDefs = gql`
     expires: String!
   }
 
-  input inputTag {
+  input InputTag {
     name: String!
   }
 
@@ -159,7 +162,7 @@ const typeDefs = gql`
     time: String!
     imageUrl: String
     postcode: String
-    tags: [inputTag]
+    tags: [InputTag]
     price: Float
   }
 
@@ -167,6 +170,16 @@ const typeDefs = gql`
     event: ID!
     isPaid: Boolean!
     expires: String!
+  }
+
+  input CreateArtistProfile {
+    name: String!
+    artists: [ID]
+    demoSong: [String]
+    tags: [inputTag]
+    rider: String
+    artistImage: String
+    artistImageName: String
   }
 
   type CreateAdSuccess {
@@ -184,6 +197,7 @@ const typeDefs = gql`
     signup(signupInput: SignupInput!): SignupSuccess
     createEvent(createEventInput: CreateEventInput!): Event
     createAdvert(createAdvertInput: CreateAdvertInput!): Event
+    createArtistProfile(createArtistProfile: CreateArtistProfile!): Artist
   }
 `;
 
