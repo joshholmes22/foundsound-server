@@ -4,6 +4,7 @@ const artistSchema = {
   name: {
     type: String,
     trim: true,
+    default: null,
   },
   user: {
     type: Schema.Types.ObjectId,
@@ -12,14 +13,19 @@ const artistSchema = {
   rider: {
     type: String,
     required: false,
+    default: null,
   },
   artistImage: {
     type: String,
+    default: [],
   },
 
-  artistImageName: {
-    type: String,
-  },
+  artistImageName: [
+    {
+      type: String,
+      default: null,
+    },
+  ],
   demoSong: [
     {
       type: String,

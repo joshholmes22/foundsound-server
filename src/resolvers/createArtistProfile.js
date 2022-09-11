@@ -6,7 +6,7 @@ const createArtistProfile = async (
   { createArtistProfileInput },
   { user }
 ) => {
-  createArtistProfileInput.user = "631db84abeb1abad880f6975";
+  createArtistProfileInput.user = "631dd87e330e2886f1933eaf";
   const { name, demoSong, tags, rider, artistImage, artistImageName } =
     createArtistProfileInput;
   try {
@@ -26,7 +26,7 @@ const createArtistProfile = async (
 
     console.log(updateArtist);
 
-    // return updateArtist;
+    return updateArtist;
   } catch (error) {
     console.log(`[ERROR]: Failed to update Artist | ${error.message}`);
     throw new ApolloError("Failed to update Artist");
