@@ -86,7 +86,6 @@ const typeDefs = gql`
   type Artist {
     name: String
     user: ID
-    artists: [ID]
     demoSong: [String]
     tags: [Tag]
     rider: String
@@ -174,7 +173,6 @@ const typeDefs = gql`
 
   input CreateArtistProfileInput {
     name: String
-    artists: [ID]
     demoSong: [String]
     tags: [InputTag]
     rider: String

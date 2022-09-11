@@ -9,17 +9,6 @@ const artistSchema = {
     type: Schema.Types.ObjectId,
     ref: "User",
   },
-  demoSong: [
-    {
-      type: String,
-      required: false,
-    },
-  ],
-  tags: [
-    {
-      name: { type: String },
-    },
-  ],
   rider: {
     type: String,
     required: false,
@@ -31,6 +20,17 @@ const artistSchema = {
   artistImageName: {
     type: String,
   },
+  demoSong: [
+    {
+      type: String,
+      required: false,
+    },
+  ],
+  tags: [
+    {
+      name: { type: String },
+    },
+  ],
 };
 
 const schema = new Schema(artistSchema);
