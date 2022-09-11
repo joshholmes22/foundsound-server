@@ -169,6 +169,10 @@ const typeDefs = gql`
 
   input CreateAdvertInput {
     event: ID!
+    description: String!
+    setTime: String
+    solo: Boolean
+    fee: String
     isPaid: Boolean!
     expires: String!
   }
