@@ -144,13 +144,13 @@ const typeDefs = gql`
   }
 
   type Advert {
-    event: ID!
-    description: String!
+    event: ID
+    description: String
     setTime: String
     solo: Boolean
     fee: String
-    isPaid: Boolean!
-    expires: String!
+    isPaid: Boolean
+    expires: String
   }
 
   input InputTag {
@@ -195,6 +195,7 @@ const typeDefs = gql`
   type Query {
     addressLookup(postcode: String!): AddressResponse
     getAllEvents: [Event]
+    getAllEventsForOwner(eventOwner: ID!): [Event]
     getAnEvent(eventId: ID!): Event
   }
 

@@ -6,12 +6,14 @@ const createEvent = require("./createEvent");
 const getAllEvents = require("./getAllEvents");
 const getAnEvent = require("./getAnEvent");
 const createArtistProfile = require("./createArtistProfile");
+const getAllEventsForOwner = require("./getAllEventsForOwner");
 
 const resolvers = {
   Query: {
     addressLookup,
     getAllEvents,
     getAnEvent,
+    getAllEventsForOwner,
   },
   Mutation: {
     login,
