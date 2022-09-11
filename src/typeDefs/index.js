@@ -89,7 +89,7 @@ const typeDefs = gql`
     demoSong: [String]
     tags: [Tag]
     rider: String
-    artistImage: [String]
+    artistImage: String
     artistImageName: String
   }
   type AudienceMember {
@@ -184,7 +184,7 @@ const typeDefs = gql`
     demoSong: [String]
     tags: [InputTag]
     rider: String
-    artistImage: [String]
+    artistImage: String
     artistImageName: String
   }
 

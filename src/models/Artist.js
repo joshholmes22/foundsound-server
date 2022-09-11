@@ -17,15 +17,13 @@ const artistSchema = {
   },
   artistImage: {
     type: String,
-    default: [],
+    default: null,
   },
 
-  artistImageName: [
-    {
-      type: String,
-      default: null,
-    },
-  ],
+  artistImageName: {
+    type: String,
+    default: null,
+  },
   demoSong: [
     {
       type: String,
@@ -38,8 +36,15 @@ const artistSchema = {
     },
   ],
 };
+const options = {
+  toJSON: {
+    virtuals: true,
+    getters: true,
+  },
+  id: true,
+};
 
-const schema = new Schema(artistSchema);
+const schema = new Schema(artistSchema, options);
 
 const Artist = model("Artist", schema);
 

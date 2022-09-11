@@ -6,22 +6,17 @@ const createArtistProfile = async (
   { createArtistProfileInput },
   { user }
 ) => {
-  createArtistProfileInput.user = "631dd87e330e2886f1933eaf";
+  // createArtistProfileInput.user = "631e253820e79a683f11f961";
+  createArtistProfileInput.user = user.id;
   const { name, demoSong, tags, rider, artistImage, artistImageName } =
     createArtistProfileInput;
+
+  console.log(createArtistProfileInput);
   try {
     const updateArtist = await Artist.findOneAndUpdate(
       { user: createArtistProfileInput.user },
-      {
-        $push: {
-          name: name,
-          demoSong: demoSong,
-          tags: [tags],
-          rider: rider,
-          artistImage: artistImage,
-          artistImageName: artistImageName,
-        },
-      }
+      { name, demoSong, tags, rider, artistImage, artistImageName },
+      { new: true }
     );
 
     console.log(updateArtist);
