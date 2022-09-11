@@ -3,7 +3,11 @@ const { Event } = require("../models");
 
 const getAllEventsForOwner = async (_, { eventOwner }) => {
   try {
-    const findEventByOwner = await Event.find({ eventOwner: eventOwner });
+    const findEventByOwner = await Event.find({ eventOwner })
+      .populate("eventOwner")
+      .populate("adverts");
+
+    console.log(findEventByOwner);
 
     return findEventByOwner;
   } catch (error) {
