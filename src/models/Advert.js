@@ -14,6 +14,7 @@ const advertSchema = {
     required: true,
     trim: true,
   },
+  artist,
 };
 
 const options = {
