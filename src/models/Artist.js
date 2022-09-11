@@ -15,10 +15,12 @@ const artistSchema = {
     required: false,
     default: null,
   },
-  artistImage: {
-    type: String,
-    default: null,
-  },
+  artistImage: [
+    {
+      type: String,
+      default: null,
+    },
+  ],
 
   artistImageName: {
     type: String,
