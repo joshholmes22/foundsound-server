@@ -49,7 +49,7 @@ const typeDefs = gql`
   }
 
   type Tag {
-    name: String!
+    name: String
   }
 
   type Event {
@@ -84,7 +84,7 @@ const typeDefs = gql`
     verificationCode: String
   }
   type Artist {
-    name: String!
+    name: String
     user: ID
     artists: [ID]
     demoSong: [String]
@@ -151,7 +151,7 @@ const typeDefs = gql`
   }
 
   input InputTag {
-    name: String!
+    name: String
   }
 
   input inputEvent {
@@ -173,7 +173,7 @@ const typeDefs = gql`
   }
 
   input CreateArtistProfileInput {
-    name: String!
+    name: String
     artists: [ID]
     demoSong: [String]
     tags: [InputTag]

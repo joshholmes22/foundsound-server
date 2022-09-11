@@ -7,10 +7,11 @@ const createArtistProfile = async (
   { user }
 ) => {
   try {
-    createArtistProfileInput.user = user.id;
-    await Artist.findByIdAndUpdate(user.id, {
-      $push: { createArtistProfileInput },
+    const updateArtist = await Artist.findByIdAndUpdate(user.id, {
+      $push: { ...createArtistProfileInput },
     }).populate("artists");
+
+    return updateArtist;
   } catch (error) {
     console.log(`[ERROR]: Failed to update Artist | ${error.message}`);
     throw new ApolloError("Failed to update Artist");
