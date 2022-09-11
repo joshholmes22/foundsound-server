@@ -88,7 +88,7 @@ const typeDefs = gql`
     user: ID
     artists: [ID]
     demoSong: [String]
-    tags: [inputTag]
+    tags: [Tag]
     rider: String
     artistImage: String
     artistImageName: String
@@ -172,11 +172,11 @@ const typeDefs = gql`
     expires: String!
   }
 
-  input CreateArtistProfile {
+  input CreateArtistProfileInput {
     name: String!
     artists: [ID]
     demoSong: [String]
-    tags: [inputTag]
+    tags: [InputTag]
     rider: String
     artistImage: String
     artistImageName: String
@@ -197,7 +197,9 @@ const typeDefs = gql`
     signup(signupInput: SignupInput!): SignupSuccess
     createEvent(createEventInput: CreateEventInput!): Event
     createAdvert(createAdvertInput: CreateAdvertInput!): Event
-    createArtistProfile(createArtistProfile: CreateArtistProfile!): Artist
+    createArtistProfile(
+      createArtistProfileInput: CreateArtistProfileInput!
+    ): Artist
   }
 `;
 
