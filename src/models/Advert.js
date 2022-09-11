@@ -3,7 +3,21 @@ const { Schema } = require("mongoose");
 const advertSchema = {
   event: {
     type: Schema.Types.ObjectId,
-    ref: "event",
+    ref: "Event",
+  },
+  description: {
+    type: String,
+    require: true,
+  },
+  setTime: {
+    type: String,
+    require: true,
+  },
+  solo: {
+    type: Boolean,
+  },
+  fee: {
+    type: String,
   },
   isPaid: {
     type: Boolean,
