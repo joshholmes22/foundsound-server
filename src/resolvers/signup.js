@@ -1,13 +1,21 @@
 const { ApolloError } = require("apollo-server");
 
-const { User, AddressLookup, EventOrganiser, Artist, AudienceMember } = require("../models");
+const {
+  User,
+  AddressLookup,
+  EventOrganiser,
+  Artist,
+  AudienceMember,
+} = require("../models");
 
 const signup = async (_, { signupInput }) => {
   try {
     const user = await User.findOne({ email: signupInput.email });
 
     if (user) {
-      console.log(`[ERROR]: Failed to signup | ${signupInput.email} already exists`);
+      console.log(
+        `[ERROR]: Failed to signup | ${signupInput.email} already exists`
+      );
 
       throw new ApolloError("Failed to signup");
     }

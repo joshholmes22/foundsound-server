@@ -49,7 +49,7 @@ const typeDefs = gql`
   }
 
   type Tag {
-    name: String!
+    name: String
   }
 
   type Event {
@@ -86,9 +86,11 @@ const typeDefs = gql`
   type Artist {
     name: String
     user: ID
-    demoSong: String
-    tag: ID
+    demoSong: [String]
+    tags: [Tag]
     rider: String
+    artistImage: [String]
+    artistImageName: String
   }
   type AudienceMember {
     user: ID
@@ -134,7 +136,7 @@ const typeDefs = gql`
     facilities: [String]
     capacity: String
     imageUrl: String
-    tags: [inputTag]
+    tags: [InputTag]
   }
 
   type DeleteEventSuccess {
@@ -151,8 +153,8 @@ const typeDefs = gql`
     expires: String
   }
 
-  input inputTag {
-    name: String!
+  input InputTag {
+    name: String
   }
 
   input inputEvent {
@@ -163,7 +165,7 @@ const typeDefs = gql`
     time: String!
     imageUrl: String
     postcode: String
-    tags: [inputTag]
+    tags: [InputTag]
     price: Float
   }
 
@@ -175,6 +177,15 @@ const typeDefs = gql`
     fee: String
     isPaid: Boolean!
     expires: String!
+  }
+
+  input CreateArtistProfileInput {
+    name: String
+    demoSong: [String]
+    tags: [InputTag]
+    rider: String
+    artistImage: [String]
+    artistImageName: String
   }
 
   type CreateAdSuccess {
@@ -193,6 +204,9 @@ const typeDefs = gql`
     signup(signupInput: SignupInput!): SignupSuccess
     createEvent(createEventInput: CreateEventInput!): Event
     createAdvert(createAdvertInput: CreateAdvertInput!): Event
+    createArtistProfile(
+      createArtistProfileInput: CreateArtistProfileInput!
+    ): Artist
   }
 `;
 
