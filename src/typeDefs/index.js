@@ -185,6 +185,7 @@ const typeDefs = gql`
     addressLookup(postcode: String!): AddressResponse
     getAllEvents: [Event]
     getAnEvent(eventId: ID!): Event
+    getAdById(getAdById: ID!): Advert
   }
 
   type Mutation {
