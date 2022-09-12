@@ -1,4 +1,5 @@
 const { Schema } = require("mongoose");
+const User = require("./User");
 
 const advertSchema = {
   event: {
@@ -27,6 +28,16 @@ const advertSchema = {
     type: Date,
     required: true,
     trim: true,
+  },
+  allResponses: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Artist",
+    },
+  ],
+  status: {
+    type: String,
+    enum: ["pending", "completed"],
   },
 };
 

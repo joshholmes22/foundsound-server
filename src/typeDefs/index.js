@@ -188,6 +188,10 @@ const typeDefs = gql`
     artistImageName: String
   }
 
+  input AdvertResponsesInput {
+    
+  }
+
   type CreateAdSuccess {
     success: Boolean!
   }
@@ -207,6 +211,7 @@ const typeDefs = gql`
     createArtistProfile(
       createArtistProfileInput: CreateArtistProfileInput!
     ): Artist
+    advertResponsesAds(advertResponsesInput: AdvertResponsesInput): Ad
   }
 `;
 
