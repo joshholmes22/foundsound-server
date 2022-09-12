@@ -207,6 +207,7 @@ const typeDefs = gql`
     createArtistProfile(
       createArtistProfileInput: CreateArtistProfileInput!
     ): Artist
+    favoriteEvents(eventIdInput: ID!): Event
   }
 `;
 
