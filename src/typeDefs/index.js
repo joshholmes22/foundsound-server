@@ -197,6 +197,7 @@ const typeDefs = gql`
     getAllEvents: [Event]
     getAllEventsForOwner(eventOwner: ID!): [Event]
     getAnEvent(eventId: ID!): Event
+    getArtist(artistId: ID!): Artist
   }
 
   type Mutation {
