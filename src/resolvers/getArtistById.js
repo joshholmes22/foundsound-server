@@ -3,7 +3,7 @@ const { Artist } = require("../models");
 
 const getArtist = async (_, { artistId }) => {
   try {
-    const artist = await Artist.findById(artistId);
+    const artist = await Artist.findById(artistId).populate("user");
 
     return artist;
   } catch (error) {

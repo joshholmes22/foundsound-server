@@ -85,7 +85,7 @@ const typeDefs = gql`
   }
   type Artist {
     name: String
-    user: ID
+    user: User
     demoSong: [String]
     tags: [Tag]
     rider: String
