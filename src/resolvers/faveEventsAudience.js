@@ -1,12 +1,12 @@
 const { ApolloError } = require("apollo-server");
 const { Event } = require("../models");
 
-const favoriteEvents = async (_, eventIdInput) => {
+const favoriteEvents = async (_, { eventId }) => {
   try {
-    console.log(eventIdInput);
-    if (eventIdInput) {
+    console.log(eventId);
+    if (eventId) {
       const eventData = await Event.findById(eventId);
-      const savedEvents = eventData.savedEvents;
+      const savedEvents = eventData.savedEvents || [];
 
       const alreadySavedEvents = savedEvents.includes(eventId);
 
