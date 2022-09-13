@@ -151,6 +151,7 @@ const typeDefs = gql`
     fee: String
     isPaid: Boolean
     expires: String
+    allResponses: [ID]
   }
 
   input InputTag {
@@ -188,6 +189,12 @@ const typeDefs = gql`
     artistImageName: String
   }
 
+  input AdvertResponsesInput {
+    adId: ID
+    allResponses: [ID!]
+    eventId: ID!
+  }
+
   type CreateAdSuccess {
     success: Boolean!
   }
@@ -208,6 +215,7 @@ const typeDefs = gql`
     createArtistProfile(
       createArtistProfileInput: CreateArtistProfileInput!
     ): Artist
+    advertResponses(advertResponsesInput: AdvertResponsesInput!): Event
   }
 `;
 

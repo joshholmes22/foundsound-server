@@ -7,6 +7,7 @@ const getAllEvents = require("./getAllEvents");
 const getAnEvent = require("./getAnEvent");
 const createArtistProfile = require("./createArtistProfile");
 const getAllEventsForOwner = require("./getAllEventsForOwner");
+const advertResponses = require("./advertResponses");
 const getArtist = require("./getArtistById");
 
 const resolvers = {
@@ -23,6 +24,7 @@ const resolvers = {
     createEvent,
     createAdvert,
     createArtistProfile,
+    advertResponses,
   },
 };
 
