@@ -7,6 +7,7 @@ const getAllEvents = require("./getAllEvents");
 const getAnEvent = require("./getAnEvent");
 const createArtistProfile = require("./createArtistProfile");
 const getAllEventsForOwner = require("./getAllEventsForOwner");
+const artistViewsAd = require("./artistViewsAd");
 
 const resolvers = {
   Query: {
@@ -14,6 +15,7 @@ const resolvers = {
     getAllEvents,
     getAnEvent,
     getAllEventsForOwner,
+    artistViewsAd,
   },
   Mutation: {
     login,
