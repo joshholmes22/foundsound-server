@@ -3,6 +3,10 @@ const { Event, User } = require("../models");
 
 const deleteEvent = async (_, { input }, { user }) => {
   try {
+    if (!user) {
+      throw new AuthenticationError("User is not authorized");
+    }
+
     const loggedUser = await User.findById(user.id);
 
     const getEvent = Event.findById({ _id: id });
