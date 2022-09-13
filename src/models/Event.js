@@ -86,6 +86,12 @@ const eventSchema = {
     type: Schema.Types.ObjectId,
     ref: "User",
   },
+  acceptedArtists: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Arist",
+    },
+  ],
 };
 
 const options = {
