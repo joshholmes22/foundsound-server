@@ -1,8 +1,15 @@
 const { ApolloError } = require("apollo-server");
-const { Advert } = require("../models");
+const { Event } = require("../models");
 
-const adById = async (_, { getAdById }) => {
-  const getAd = await Advert.findById(getAdById);
+const adById = async (_, { adId, eventId }) => {
+  const getAd = await Event.findOne({
+    _id: eventId,
+    adverts: {
+      $elemMatch: {
+        _id: adId,
+      },
+    },
+  }).populate("eventOwner");
 
   return getAd;
 };
