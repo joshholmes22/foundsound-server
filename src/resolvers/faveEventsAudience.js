@@ -8,10 +8,11 @@ const favoriteEvents = async (_, eventId) => {
         const savedEvents = eventData.savedEvents;
 
         const alreadySavedEvents = savedEvents.includes(eventId);
+
         if (!alreadySavedEvents) {
             const event = await Event.findByIdAndUpdate(eventId),
             {
-                $push: {savedEvents: eventId}.populate("savedEvents");
+                $push: {savedEvents: eventId},populate("savedEvents"),
                 return event;
 
             } else {
@@ -22,7 +23,7 @@ const favoriteEvents = async (_, eventId) => {
               console.log(`[ERROR]: Failed to save event | ${error.message}`);
               throw new ApolloError("Failed to save event");
             };
-        }
-    }
+        };
+    
           
         module.exports = favoriteEvents;
