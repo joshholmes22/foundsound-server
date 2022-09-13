@@ -46,7 +46,7 @@ const options = {
     virtuals: true,
     getters: true,
   },
-  id: false,
+  id: true,
 };
 
 const schema = new Schema(advertSchema, options);
