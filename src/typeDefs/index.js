@@ -85,7 +85,7 @@ const typeDefs = gql`
   }
   type Artist {
     name: String
-    user: ID
+    user: User
     demoSong: [String]
     tags: [Tag]
     rider: String
@@ -204,6 +204,7 @@ const typeDefs = gql`
     getAllEvents: [Event]
     getAllEventsForOwner(eventOwner: ID!): [Event]
     getAnEvent(eventId: ID!): Event
+    getArtist(artistId: ID!): Artist
   }
 
   type Mutation {
