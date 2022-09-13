@@ -13,15 +13,17 @@ const createArtistProfile = async (
 
   console.log(createArtistProfileInput);
   try {
-    const updateArtist = await Artist.findOneAndUpdate(
+    const updatedArtist = await Artist.findOneAndUpdate(
       { user: createArtistProfileInput.user },
       { name, demoSong, tags, rider, artistImage, artistImageName },
       { new: true }
     );
 
-    console.log(updateArtist);
+    const artist = await Artist.findById(updatedArtist.get("_id")).populate(
+      "user"
+    );
 
-    return updateArtist;
+    return artist;
   } catch (error) {
     console.log(`[ERROR]: Failed to update Artist | ${error.message}`);
     throw new ApolloError("Failed to update Artist");
