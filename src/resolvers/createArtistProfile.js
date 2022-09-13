@@ -1,15 +1,21 @@
 const { ApolloError } = require("apollo-server");
-const { Artist } = require("../models");
+const { Artist, User } = require("../models");
 
-const createArtistProfile = async (
-  _,
-  { createArtistProfileInput },
-  { user }
-) => {
+const createArtistProfile = async (_, { createArtistProfileInput }, { user }) => {
+  if (!user) {
+    throw new AuthenticationError("User is not authorized");
+  }
+
   // createArtistProfileInput.user = "631e253820e79a683f11f961";
   createArtistProfileInput.user = user.id;
-  const { name, demoSong, tags, rider, artistImage, artistImageName } =
-    createArtistProfileInput;
+
+  const loggedUser = await User.findById(user.id);
+
+  if (!loggedUser) {
+    throw new AuthenticationError("User thus not exist");
+  }
+
+  const { name, demoSong, tags, rider, artistImage, artistImageName } = createArtistProfileInput;
 
   console.log(createArtistProfileInput);
   try {

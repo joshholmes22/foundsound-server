@@ -1,33 +1,40 @@
-const { ApolloError } = require("apollo-server");
+const { ApolloError, AuthenticationError } = require("apollo-server");
 
-const { Event, AddressLookup } = require("../models");
+const { Event, AddressLookup, User } = require("../models");
 
 const createEvent = async (_, { createEventInput }, { user }) => {
   try {
+    if (!user) {
+      throw new AuthenticationError("User is not authorized");
+    }
     createEventInput.eventOwner = user.id;
-    // for the user.id get the status
-    const address = await AddressLookup.findOne({
-      addresses: {
-        $elemMatch: {
-          _id: createEventInput.address,
+
+    const loggedUser = await User.findById(user.id);
+
+    if (loggedUser && loggedUser.userType === "eventOrganiser") {
+      const address = await AddressLookup.findOne({
+        addresses: {
+          $elemMatch: {
+            _id: createEventInput.address,
+          },
         },
-      },
-    });
+      });
 
-    const yourAddress = address
-      .get("addresses")
-      .find(
-        (address) => address.get("_id").toString() === createEventInput.address
-      );
+      const yourAddress = address
+        .get("addresses")
+        .find((address) => address.get("_id").toString() === createEventInput.address);
 
-    const newEvent = await Event.create({
-      ...createEventInput,
-      address: yourAddress,
-    });
+      const newEvent = await Event.create({
+        ...createEventInput,
+        address: yourAddress,
+      });
 
-    const event = await Event.findById(newEvent.get("_id"));
+      const event = await Event.findById(newEvent.get("_id"));
 
-    return event;
+      return event;
+    } else {
+      throw new ApolloError("Failed to authenticate user for create event");
+    }
   } catch (error) {
     console.log(`[ERROR]: Failed to create event | ${error.message}`);
     throw new ApolloError("Failed to create event");
