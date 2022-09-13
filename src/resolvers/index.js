@@ -8,6 +8,8 @@ const getAnEvent = require("./getAnEvent");
 const getAdById = require("./getAdById");
 const createArtistProfile = require("./createArtistProfile");
 const getAllEventsForOwner = require("./getAllEventsForOwner");
+const advertResponses = require("./advertResponses");
+const getArtist = require("./getArtistById");
 
 const resolvers = {
   Query: {
@@ -16,6 +18,7 @@ const resolvers = {
     getAnEvent,
     getAdById,
     getAllEventsForOwner,
+    getArtist,
   },
   Mutation: {
     login,
@@ -23,6 +26,7 @@ const resolvers = {
     createEvent,
     createAdvert,
     createArtistProfile,
+    advertResponses,
   },
 };
 

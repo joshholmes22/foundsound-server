@@ -85,7 +85,7 @@ const typeDefs = gql`
   }
   type Artist {
     name: String
-    user: ID
+    user: User
     demoSong: [String]
     tags: [Tag]
     rider: String
@@ -151,6 +151,7 @@ const typeDefs = gql`
     fee: String
     isPaid: Boolean
     expires: String
+    allResponses: [ID]
   }
 
   input InputTag {
@@ -188,6 +189,12 @@ const typeDefs = gql`
     artistImageName: String
   }
 
+  input AdvertResponsesInput {
+    adId: ID
+    allResponses: [ID!]
+    eventId: ID!
+  }
+
   type CreateAdSuccess {
     success: Boolean!
   }
@@ -198,6 +205,7 @@ const typeDefs = gql`
     getAllEventsForOwner(eventOwner: ID!): [Event]
     getAnEvent(eventId: ID!): Event
     getAdById(adId: ID!, eventId: ID!): Event
+    getArtist(artistId: ID!): Artist
   }
 
   type Mutation {
@@ -208,6 +216,7 @@ const typeDefs = gql`
     createArtistProfile(
       createArtistProfileInput: CreateArtistProfileInput!
     ): Artist
+    advertResponses(advertResponsesInput: AdvertResponsesInput!): Event
   }
 `;
 
