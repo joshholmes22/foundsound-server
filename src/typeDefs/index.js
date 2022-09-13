@@ -188,6 +188,10 @@ const typeDefs = gql`
     artistImageName: String
   }
 
+  input EventIdInput {
+    event: ID!
+  }
+
   type CreateAdSuccess {
     success: Boolean!
   }
@@ -207,7 +211,7 @@ const typeDefs = gql`
     createArtistProfile(
       createArtistProfileInput: CreateArtistProfileInput!
     ): Artist
-    favoriteEvents(eventIdInput: ID!): Event
+    favoriteEvents(eventIdInput: EventIdInput!): Event
   }
 `;
 
