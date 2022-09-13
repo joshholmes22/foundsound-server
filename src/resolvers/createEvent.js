@@ -1,9 +1,12 @@
-const { ApolloError } = require("apollo-server");
+const { ApolloError, AuthenticationError } = require("apollo-server");
 
 const { Event, AddressLookup, User } = require("../models");
 
 const createEvent = async (_, { createEventInput }, { user }) => {
   try {
+    if (!user) {
+      throw new AuthenticationError("User is not authorized");
+    }
     createEventInput.eventOwner = user.id;
 
     const loggedUser = await User.findById(user.id);

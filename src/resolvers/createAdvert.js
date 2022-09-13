@@ -3,6 +3,10 @@ const { Event } = require("../models");
 
 const createAdvert = async (_, { createAdvertInput }, { user }) => {
   try {
+    if (!user) {
+      throw new AuthenticationError("User is not authorized");
+    }
+
     const loggedUser = await User.findById(user.id);
 
     if (loggedUser && loggedUser.userType === "eventOrganiser") {
@@ -12,7 +16,7 @@ const createAdvert = async (_, { createAdvertInput }, { user }) => {
           $push: { adverts: createAdvertInput },
         },
         { new: true }
-      );
+      ).populate("eventOwner");
 
       return findAd;
     } else {
