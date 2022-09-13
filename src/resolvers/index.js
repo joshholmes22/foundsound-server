@@ -15,7 +15,6 @@ const resolvers = {
     getAllEvents,
     getAnEvent,
     getAllEventsForOwner,
-    favoriteEvents,
   },
   Mutation: {
     login,
@@ -23,6 +22,7 @@ const resolvers = {
     createEvent,
     createAdvert,
     createArtistProfile,
+    favoriteEvents,
   },
 };
 

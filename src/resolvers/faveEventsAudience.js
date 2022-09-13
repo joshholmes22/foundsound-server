@@ -3,7 +3,8 @@ const { Event } = require("../models");
 
 const favoriteEvents = async (_, eventIdInput) => {
   try {
-    if (eventId) {
+    console.log(eventIdInput);
+    if (eventIdInput) {
       const eventData = await Event.findById(eventId);
       const savedEvents = eventData.savedEvents;
 
