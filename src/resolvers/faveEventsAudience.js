@@ -12,10 +12,11 @@ const favoriteEvents = async (_, { eventId }) => {
 
       if (!alreadySavedEvents) {
         const event = await Event.findByIdAndUpdate(eventId, {
-          $push: { savedEvents: eventId },
-        }).populate("savedEvents");
+          {$push: {savedEvents: eventId}},{new:true}.populate("savedEvents");
+        
 
         return event;
+      }
       } else {
         throw new ApolloError("Event already saved");
       }
