@@ -1,5 +1,5 @@
-const { ApolloError } = require("apollo-server");
-const { Event } = require("../models");
+const { ApolloError, AuthenticationError } = require("apollo-server");
+const { Event, User } = require("../models");
 
 const createAdvert = async (_, { createAdvertInput }, { user }) => {
   try {
@@ -20,7 +20,9 @@ const createAdvert = async (_, { createAdvertInput }, { user }) => {
 
       return findAd;
     } else {
-      throw new ApolloError("Failed to failed to authenticate user for create advert");
+      throw new ApolloError(
+        "Failed to failed to authenticate user for create advert"
+      );
     }
   } catch (error) {
     console.log(`[ERROR]: Failed to create advert | ${error.message}`);
