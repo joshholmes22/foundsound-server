@@ -195,6 +195,17 @@ const typeDefs = gql`
     eventId: ID!
   }
 
+  type AdvertResponse {
+    event: Event
+    description: String
+    setTime: String
+    solo: Boolean
+    fee: String
+    isPaid: Boolean
+    expires: String
+    allResponses: [ID]
+  }
+
   type CreateAdSuccess {
     success: Boolean!
   }
@@ -206,6 +217,7 @@ const typeDefs = gql`
     getAnEvent(eventId: ID!): Event
     getAdById(adId: ID!, eventId: ID!): Event
     getArtist(artistId: ID!): Artist
+    getAllAds: [AdvertResponse]
   }
 
   type Mutation {

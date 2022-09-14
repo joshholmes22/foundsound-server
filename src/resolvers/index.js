@@ -10,11 +10,13 @@ const createArtistProfile = require("./createArtistProfile");
 const getAllEventsForOwner = require("./getAllEventsForOwner");
 const advertResponses = require("./advertResponses");
 const getArtist = require("./getArtistById");
+const getAllAds = require("./getAllAds");
 
 const resolvers = {
   Query: {
     addressLookup,
     getAllEvents,
+    getAllAds,
     getAnEvent,
     getAdById,
     getAllEventsForOwner,
