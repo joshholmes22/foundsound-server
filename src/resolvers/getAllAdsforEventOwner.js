@@ -1,3 +1,8 @@
-const getAllAdsforEventOwner = async () => {};
+const getAllAdsForEventOwner = async (_, _, { user }) => {
+  try {
+  } catch (error) {
+    con;
+  }
+};
 
-modeule.exports = getAllAdsforEventOwner;
+modeule.exports = getAllAdsForEventOwner;
