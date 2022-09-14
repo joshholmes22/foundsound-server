@@ -1,9 +1,14 @@
-const { ApolloError } = require("apollo-server");
+const { ApolloError, AuthenticationError } = require("apollo-server");
 const { Event } = require("../models");
 
-const getAllEventsForOwner = async (_, { eventOwner }) => {
+const getAllEventsForOwner = async (_, __, { user }) => {
   try {
-    const findEventByOwner = await Event.find({ eventOwner })
+    if (!user) {
+      throw new AuthenticationError("unauthorized user");
+    }
+
+    const findEventByOwner = await Event.find({ eventOwner: user.id })
+
       .populate("eventOwner")
       .populate("adverts");
 
