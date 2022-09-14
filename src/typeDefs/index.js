@@ -213,7 +213,7 @@ const typeDefs = gql`
   type Query {
     addressLookup(postcode: String!): AddressResponse
     getAllEvents: [Event]
-    getAllEventsForOwner(eventOwner: ID!): [Event]
+    getAllEventsForOwner: [Event]
     getAnEvent(eventId: ID!): Event
     getAdById(adId: ID!, eventId: ID!): Event
     getArtist(artistId: ID!): Artist
