@@ -218,6 +218,7 @@ const typeDefs = gql`
     getAdById(adId: ID!, eventId: ID!): Event
     getArtist(artistId: ID!): Artist
     getAllAds: [AdvertResponse]
+    getAllAdsforEventOwner: [AdvertResponse]
   }
 
   type Mutation {
