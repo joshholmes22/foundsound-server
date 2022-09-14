@@ -1,10 +1,13 @@
 const { ApolloError } = require("apollo-server");
-const { EventOrganiser } = require("../models");
+const { EventOrganiser, Event } = require("../models");
 
 const getAllAdsForEventOwner = async (_, __, { user }) => {
   try {
     let filterAds = [];
-    const getAllAds = await Event.find({ eventOwner: user._id })
+
+    const { userId } = user;
+
+    const getAllAds = await Event.find({ eventOwner: userId })
       .populate("eventOwner")
       .populate({
         path: "adverts",
