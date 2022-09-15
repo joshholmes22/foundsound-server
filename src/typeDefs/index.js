@@ -217,6 +217,7 @@ const typeDefs = gql`
     getAnEvent(eventId: ID!): Event
     getAdById(adId: ID!, eventId: ID!): Event
     getArtist(artistId: ID!): Artist
+    getAllArtists: [Artist]
     getAllAds: [AdvertResponse]
     getAllAdsForEventOwner: [AdvertResponse]
   }

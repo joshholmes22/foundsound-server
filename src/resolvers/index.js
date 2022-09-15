@@ -11,6 +11,7 @@ const getAllEventsForOwner = require("./getAllEventsForOwner");
 const advertResponses = require("./advertResponses");
 const getArtist = require("./getArtistById");
 const getAllAds = require("./getAllAds");
+const getAllArtists = require("./getAllArtists");
 const getAllAdsForEventOwner = require("./getAllAdsForEventOwner");
 
 const resolvers = {
@@ -23,6 +24,7 @@ const resolvers = {
     getAllEventsForOwner,
     getAllAdsForEventOwner,
     getArtist,
+    getAllArtists,
   },
   Mutation: {
     login,
