@@ -1,9 +1,12 @@
 const connectToDatabase = require("../config/connection");
 const { Tag } = require("../models");
+const { Artist } = require("../models");
 const { seedTags } = require("./tag");
+const { seedArtists } = require("./artists");
 
 const clearCollections = async () => {
   await Tag.deleteMany({});
+  await Artist.deleteMany({});
 };
 
 const init = async () => {
