@@ -61,7 +61,7 @@ const artists = [
     rider: "no",
     artistImage:
       "https://images.unsplash.com/photo-1520170975578-25bd5217bf3d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGJhbmRzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=700&q=60",
-    demoSong: [""],
+    demoSong: ["spotify:track:0MWiSBKm8Avs8iDIxcertp"],
     tags: [{ name: "low-fi" }, { name: "relax" }],
   },
   {
@@ -79,7 +79,7 @@ const artists = [
     rider: "yes",
     artistImage:
       "https://images.unsplash.com/photo-1550635707-e8c55839e834?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGJhbmRzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=700&q=60",
-    demoSong: [""],
+    demoSong: ["spotify:track:1u8c2t2Cy7UBoG4ArRcF5g"],
     tags: [{ name: "funk" }, { name: "soul" }],
   },
   {
@@ -88,7 +88,7 @@ const artists = [
     rider: "no",
     artistImage:
       "https://images.unsplash.com/photo-1512404871764-1cf03a297841?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTl8fGJhbmRzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=700&q=60",
-    demoSong: [""],
+    demoSong: ["spotify:track:0z8hI3OPS8ADPWtoCjjLl6"],
     tags: [{ name: "soul" }, { name: "romance" }],
   },
   {
@@ -97,7 +97,7 @@ const artists = [
     rider: "yes",
     artistImage:
       "https://media.istockphoto.com/photos/rock-band-silhouette-picture-id144220369?b=1&k=20&m=144220369&s=170667a&w=0&h=zltv8TtjArhuXhNAVUSpi4c2NqnXc3hBqcJfUyBDNpA=",
-    demoSong: [""],
+    demoSong: ["spotify:track:3AVXwaOGCEL8cmBecfcsFJ"],
     tags: [{ name: "space" }, { name: "electro" }],
   },
 ];
