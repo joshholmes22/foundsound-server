@@ -1,3 +1,4 @@
+const { ApolloError } = require("apollo-server");
 const { Artist } = require("../models");
 
 const getAllArtists = async (_, __, ___) => {
