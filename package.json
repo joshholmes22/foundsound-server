@@ -23,6 +23,7 @@
     "nodemon": "^2.0.19"
   },
   "dependencies": {
+    "@faker-js/faker": "^7.5.0",
     "apollo-server": "^3.10.1",
     "axios": "^0.27.2",
     "bcrypt": "^5.0.1",
