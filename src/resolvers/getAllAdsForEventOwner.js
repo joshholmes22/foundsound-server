@@ -5,9 +5,7 @@ const getAllAdsForEventOwner = async (_, __, { user }) => {
   try {
     let filterAds = [];
 
-    const { userId } = user;
-
-    const getAllAds = await Event.find({ eventOwner: userId })
+    const getAllAds = await Event.find({ eventOwner: user.id })
       .populate("eventOwner")
       .populate({
         path: "adverts",
