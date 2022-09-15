@@ -7,7 +7,7 @@ const artists = [
     rider: "yes",
     artistImage:
       "https://images.unsplash.com/photo-1598519503006-1065f1fbe564?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGJhbmRzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-    demoSong: [""],
+    demoSong: ["spotify:track:6ebkx7Q5tTxrCxKq4GYj0Y"],
     tags: [{ name: "rock" }, { name: "indie" }],
   },
   {
@@ -16,7 +16,7 @@ const artists = [
     rider: "yes",
     artistImage:
       "https://images.unsplash.com/photo-1584762017375-9125b7918bdc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8YmFuZHN8ZW58MHx8MHx8&auto=format&fit=crop&w=700&q=60",
-    demoSong: [""],
+    demoSong: ["spotify:track:7nuQ1LgM6l5FLaJmlODoqj"],
     tags: [{ name: "blues" }, { name: "harmony" }],
   },
   {
@@ -25,7 +25,7 @@ const artists = [
     rider: "yes",
     artistImage:
       "https://images.unsplash.com/photo-1552915063-2d9ec21c2d85?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8YmFuZHN8ZW58MHx8MHx8&auto=format&fit=crop&w=700&q=60",
-    demoSong: [""],
+    demoSong: ["spotify:track:0afhq8XCExXpqazXczTSve"],
     tags: [{ name: "country" }, { name: "calm" }],
   },
   {
@@ -43,7 +43,7 @@ const artists = [
     rider: "yes",
     artistImage:
       "https://images.unsplash.com/photo-1592197871261-fc1c6d3f9972?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8YmFuZHN8ZW58MHx8MHx8&auto=format&fit=crop&w=700&q=60",
-    demoSong: [""],
+    demoSong: ["spotify:track:2DB4DdfCFMw1iaR6JaR03a"],
     tags: [{ name: "punk" }, { name: "ska" }],
   },
   {
