@@ -13,12 +13,6 @@ const audienceMemberSchema = {
   favouriteArtists: {
     type: String,
   },
-  favouriteEvents: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Event",
-    },
-  ],
 };
 
 const schema = new Schema(audienceMemberSchema);

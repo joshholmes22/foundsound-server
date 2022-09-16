@@ -96,7 +96,6 @@ const typeDefs = gql`
     user: ID
     booking: [String]
     favouriteArtists: String
-    favouriteEvents: String
   }
   type SignupSuccess {
     success: Boolean!

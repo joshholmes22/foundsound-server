@@ -4,7 +4,6 @@ const artistSchema = {
   name: {
     type: String,
     trim: true,
-    default: null,
   },
   user: {
     type: Schema.Types.ObjectId,
