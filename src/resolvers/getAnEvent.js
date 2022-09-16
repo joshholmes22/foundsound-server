@@ -3,7 +3,9 @@ const { Event } = require("../models");
 
 const getAnEvent = async (_, { eventId }) => {
   try {
-    const event = await Event.findById(eventId);
+    const event = await Event.findById(eventId)
+      .populate("adverts")
+      .populate("eventOwner");
 
     return event;
   } catch (error) {
