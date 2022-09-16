@@ -197,6 +197,7 @@ const typeDefs = gql`
   }
 
   type AdvertResponse {
+    _id: ID
     event: Event
     description: String
     setTime: String
