@@ -89,7 +89,7 @@ const eventSchema = {
   acceptedArtists: [
     {
       type: Schema.Types.ObjectId,
-      ref: "Arist",
+      ref: "Artist",
     },
   ],
 };
