@@ -9,7 +9,7 @@
 ```
 git@github.com:glowingmanagement/foundsound-server.git
 cd foundsound-server
-mpn i
+npm i
 ```
 
 # Launch the server
